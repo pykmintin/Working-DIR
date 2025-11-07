@@ -172,3 +172,37 @@ Token count each turn.
 **Audit completed by**: AI Assistant  
 **Date**: 2025-11-07  
 **Session**: Deep analysis
+
+
+---
+
+## 🐛 DEBUGGING & CORELINK ENHANCEMENTS
+**Added**: 2025-11-07 21:17
+
+### 1. Add Debugger to CoreLink
+- [ ] Enhance CoreLink.py with detailed logging (function names, line numbers, stack traces)
+- [ ] Create separate debug log (corelink_debug.log) alongside corelink.log
+- [ ] Log every action payload with full data (truncated if >1KB)
+- [ ] Show errors in dbox with Copy button and stack trace
+- [ ] Add timestamp and hash to log entries
+
+### 2. Implement Double Actions (Chained Pattern)
+- [ ] Design JSON schema for chained actions: diagnostic → conditional → execution
+- [ ] Create proof-of-concept with simple workflow (e.g., check file exists → run script if present)
+- [ ] Implement wait mechanism (waitfordboxrun) as separate action type
+- [ ] Add conditional logic based on previous action's return code/output
+- [ ] Test with safe operations first (e.g., directory checks, logging)
+
+### 3. Safe Write Pattern Integration
+- [ ] Use safe_file_writer.py for all TODO.md updates
+- [ ] Create backup before any file modifications
+- [ ] Show preview dbox with side-by-side diff
+- [ ] Require explicit confirmation for all writes
+- [ ] Implement one-click restore from backup
+
+### 4. Error Recovery & Rollback
+- [ ] Create rollback mechanism for failed multi-step workflows
+- [ ] Store temporary results in temp files between chained actions
+- [ ] Implement idempotent operations where possible
+- [ ] Add retry logic with exponential backoff
+- [ ] Log all rollback actions
