@@ -20,3 +20,155 @@
 - [ ] Replace default dialog with custom ones
 - [ ] Ensure all scripts write to logs folder
 - [ ] Test action chain: inspect → match → process
+
+---
+
+## 📊 AUDIT REPORT - 2025-11-07
+**Status**: Deep analysis complete - cleanup required
+
+### 🚨 CRITICAL ISSUES
+- **Massive duplication**: CoreLink files exist in 4 locations
+- **Mirror pollution**: Code files in Soul_Algorithm that should only be in repo
+- **Junk files**: 6+ desktop.ini files, __pycache__ folders
+- **Backup chaos**: Backups_Soul contains duplicates and old zips
+
+### 📁 SECTION 1: Working-DIR\Files (REPO - MOSTLY CLEAN)
+**File Count**: 13 files, 301KB total
+
+**ACTIVE FILES (KEEP)**:
+- ✅ CoreLink.py (8.8KB) - Worker process
+- ✅ CoreLink.pyw (7.3KB) - Launcher
+- ✅ DupeChecker.py (1.5KB) - Duplicate detection  
+- ✅ chat_processor_gui.py (6.5KB) - Chat processor UI
+- ✅ TODO.md (29KB) - Task list
+- ✅ PROMPT.txt (2.4KB) - Session prompt
+- ✅ rebuild_json.py (10KB) - JSON rebuild logic
+- ✅ test_suite.py (3.2KB) - Test suite
+- ✅ test.py (2.1KB) - Test script
+- ✅ example_conversation_schema.json (749B) - Reference
+
+**QUESTIONABLE FILES**:
+- ⚠️ test.txt (229KB) - Large text file, purpose unknown
+- ⚠️ CORELINKSCHEMAMUSTREAD.json (160B) - Duplicate schema
+- ⚠️ uncertain_classifications.json (0B) - Empty file
+
+**JUNK TO DELETE**:
+- ❌ Files\__pycache__\ - Python cache
+- ❌ Working-DIR\__pycache__\ - Python cache
+
+### 📁 SECTION 2: Soul_Algorithm\Scripts (MIRROR - NEEDS CLEANUP)
+**Status**: ILLEGAL CODE FILES FOUND
+
+**ILLEGAL (DELETE FROM MIRROR)**:
+- ❌ CoreLink.py - Should only be in repo
+- ❌ Files\DupeChecker.py - Should only be in repo  
+- ❌ Files\ folder entirely - Mirror should not have code
+
+**UNKNOWN SCRIPTS (INVESTIGATE)**:
+- ⚠️ AniList.py - Purpose unknown (anime API?)
+- ⚠️ ComicScript.py - Purpose unknown (comic downloader?)
+- ⚠️ cacheclearedge.py - Purpose unknown (browser cache?)
+
+**KEEP IN MIRROR**:
+- ✅ CoreLink.pyw - Launcher only
+- ✅ grab.py - Used by CoreLink
+- ✅ logs\corelink.log - Runtime logs
+
+**JUNK TO DELETE**:
+- ❌ All desktop.ini files (6 instances)
+- ❌ __pycache__ folders
+- ❌ logs\cache_clear_log.txt (old)
+
+### 📁 SECTION 3: Backups_Soul\Scripts (ARCHIVE - CHAOS)
+**Status**: 99% junk, 1% possible value
+
+**DEFINITE JUNK**:
+- ❌ Phase1_Stable_Set/ - Old zips and extracted files
+- ❌ handoff_bundle_phase3/ - Historical handoff
+- ❌ MemoryReconDATA/ - Ancient prompt versions
+- ❌ AniList.py duplicate
+- ❌ ComicScript.py duplicate
+
+**INVESTIGATE BEFORE DELETE**:
+- ⚠️ Core/ - Might have actual backup data
+- ⚠️ Archive/ - Might have actual archives
+
+**RECOMMENDATION**: 
+1. Copy entire Backups_Soul to external drive
+2. Delete Backups_Soul from main system
+3. Review external copy later at leisure
+
+### 📁 SECTION 4: Windows Docs & Documentation
+**Status**: Custom GPT docs - indexed and converged
+
+**KEEP**:
+- ✅ 5 final JSON files (machine-readable versions)
+
+**DELETE**:
+- ❌ All .md, .txt, .gsheet, .gdoc source files
+- ❌ Duplicate documentation
+- ❌ Old versions
+
+**ACTION**: Move source docs to Documents for final review, then delete
+
+---
+
+## ✅ PRIORITY ACTION PLAN
+
+### **PHASE 1: Immediate Cleanup (Safe)**
+- [ ] Delete all desktop.ini files (6 locations)
+- [ ] Delete all __pycache__ folders (2 locations)
+- [ ] Delete CORELINKSCHEMAMUSTREAD.json (duplicate)
+- [ ] Delete uncertain_classifications.json (empty)
+- [ ] Delete test.txt if not needed (229KB text)
+
+### **PHASE 2: Mirror Cleanup (Medium Risk)**
+- [ ] Create timestamped backup of Soul_Algorithm\Scripts
+- [ ] Delete CoreLink.py from mirror
+- [ ] Delete Files\ folder from mirror
+- [ ] Investigate AniList.py, ComicScript.py, cacheclearedge.py
+- [ ] Move or delete old cache_clear_log.txt
+
+### **PHASE 3: Backup Chaos (High Impact)**
+- [ ] Copy Backups_Soul to external drive
+- [ ] Delete Backups_Soul from main system
+- [ ] Review external copy later
+
+### **PHASE 4: Documentation Cleanup**
+- [ ] Move Windows Docs source files to Documents
+- [ ] Review and keep only 5 final JSONs
+- [ ] Delete all duplicate documentation
+
+### **PHASE 5: Organizational Improvements**
+- [ ] Create Files\Archive\ folder for old scripts
+- [ ] Move rebuild_json.py, test*.py to Archive if not active
+- [ ] Update README.md with "Underused Scripts" policy
+- [ ] Implement hash-checking for directory maps
+
+---
+
+## 🤔 DECISIONS NEEDED
+
+1. **test.txt (229KB)**: What is this? Can it be deleted?
+2. **AniList.py**: What does this do? Keep or archive?
+3. **ComicScript.py**: What does this do? Keep or archive?
+4. **cacheclearedge.py**: What does this do? Keep or archive?
+5. **Backups_Soul**: Keep on external drive or delete entirely?
+
+---
+
+## 📝 CUSTOM PROMPT FOR CLEANUP (Save This)
+
+```
+Cleanup Mode: Conservative first, then aggressive. 
+Each action: Backup → Preview → Execute.
+Progress tracked in TODO.md sections.
+All changes: dbox confirmation + copy log to clipboard.
+REPO: C:\Users\JoshMain\Documents\Working-DIR
+MIRROR: C:\Soul_Algorithm\Scripts (code-free after cleanup)
+Token count each turn.
+```
+
+**Audit completed by**: AI Assistant  
+**Date**: 2025-11-07  
+**Session**: Deep analysis
