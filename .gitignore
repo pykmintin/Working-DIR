@@ -1,0 +1,10 @@
+conversations.json
+manifest_export_wide.csv
+conversations_index.json
+uncertain_classifications.json
+logs/
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+*.tmp
