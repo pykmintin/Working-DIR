@@ -1,0 +1,6 @@
+{
+  "action": "run_python",
+  "script_path": "Files/DupeChecker.py",
+  "description": "Brief human-readable purpose",
+  "version": "optional_version_tag"
+}
