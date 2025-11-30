@@ -34,6 +34,13 @@
       "prio": "normal",
       "done": false,
       "created": "2025-11-30T02:46:08.395879"
+    },
+    {
+      "id": 7,
+      "text": "Research how Google Drive mirroring works",
+      "prio": "normal",
+      "done": false,
+      "created": "2025-11-30T02:46:12.180463"
     }
   ]
 }
