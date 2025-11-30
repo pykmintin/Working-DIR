@@ -6,6 +6,13 @@
       "prio": "normal",
       "done": false,
       "created": "2025-11-30T01:23:27.056340"
+    },
+    {
+      "id": 3,
+      "text": "Speak to Dr. Bruce and James about herbs",
+      "prio": "high",
+      "done": false,
+      "created": "2025-11-30T02:45:52.963226"
     }
   ]
 }
