@@ -90,6 +90,13 @@
       "prio": "high",
       "done": false,
       "created": "2025-11-30T02:47:06.525022"
+    },
+    {
+      "id": 15,
+      "text": "Research dexes overseas / organise dr appt",
+      "prio": "normal",
+      "done": false,
+      "created": "2025-11-30T03:19:50.372805"
     }
   ]
 }
