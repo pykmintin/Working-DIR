@@ -97,6 +97,13 @@
       "prio": "normal",
       "done": false,
       "created": "2025-11-30T03:19:50.372805"
+    },
+    {
+      "id": 16,
+      "text": "vacuum and clean the van",
+      "prio": "normal",
+      "done": false,
+      "created": "2025-11-30T23:23:47.048850"
     }
   ]
 }
