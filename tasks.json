@@ -118,6 +118,13 @@
       "prio": "high",
       "done": false,
       "created": "2025-11-30T23:42:10.225316"
+    },
+    {
+      "id": 19,
+      "text": "talk to James about the electric shaver",
+      "prio": "high",
+      "done": false,
+      "created": "2025-12-01T02:11:09.513143"
     }
   ]
 }
