@@ -88,7 +88,7 @@
       "id": 14,
       "text": "Incorporate the task system with corelink/setup new task",
       "prio": "high",
-      "done": false,
+      "done": true,
       "created": "2025-11-30T02:47:06.525022"
     },
     {
