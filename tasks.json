@@ -146,6 +146,13 @@
       "prio": "high",
       "done": false,
       "created": "2025-12-01T05:22:25.958229"
+    },
+    {
+      "id": 23,
+      "text": "Moana shop",
+      "prio": "normal",
+      "done": false,
+      "created": "2025-12-01T05:30:39.008082"
     }
   ]
 }
