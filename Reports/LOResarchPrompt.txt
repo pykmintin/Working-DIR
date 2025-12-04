@@ -1,0 +1,314 @@
+=======================================
+== 0. INTENT ==
+===============
+
+```
+I want a comprehensive, professionally structured Learning Objective (LO) catalogue for the complete topic map below. This research must use authoritative, external instructional design frameworks such as Bloom’s Revised Taxonomy, Fink’s Significant Learning framework, competency-based education models, and higher-education outcome standards. The model must not reference any of my internal documents. The tone must be hybrid Academic–Professional, suitable for a university course or advanced industry training. Output must be explicit, rigorous, and evidence-based.
+```
+
+=======================================
+== 1. TOPIC SUPERCLUSTERS (18) ==
+=================================
+
+```
+1. Human-Centered AI Foundations & Human-in-the-Loop Design  
+2. Non-Autonomous Agent Principles & Advisor Philosophy  
+3. Advisor Agent Architecture, Behavior Protocols & Decision Boundaries  
+4. Multi-Agent Systems: Role Taxonomies, Collaboration Patterns & Handoff Protocols  
+5. Web-UI Constrained Agent Workflows & Human Supervision  
+6. Prompt Engineering Foundations: Task Decomposition & Clarity  
+7. Industrial-Scale Prompt Engineering & Orchestration Layers  
+8. Layered & Role-Based Prompt Architectures (Prompt Stacks, Meta-Prompts)  
+9. Long-Context Engineering, Drift Mitigation & Distillation  
+10. Summarization Pipelines: Macro→Meso→Micro & AI-Ready Brief Generation  
+11. Input Cleaning, Voice Pipelines & Intent Reconstruction  
+12. Knowledge Management, Semantic Filesystems & External Memory Tools  
+13. Statelessness, State Packet Design & Rehydration Protocols  
+14. Evaluation Metrics, Quality Assurance & Drift Detection  
+15. Governance, Safety Boundaries & AI Anti-Goals  
+16. Learning Objective Frameworks, Curriculum Sequencing & Assessment Alignment  
+17. Capstone: Expert-Level AI System Design (Soul_Algorithm Aligned)
+```
+
+=======================================
+== 2. OUTPUT REQUIREMENTS ==
+============================
+
+```
+• Generate LOs at 4 levels: Foundational, Intermediate, Advanced, Expert/Architect  
+• All LOs must be measurable, observable, and aligned with professional frameworks  
+• Include prerequisites for each cluster  
+• Provide matrices mapping Cluster → LO → Bloom level → Evidence of Mastery  
+• Include framework comparison tables (Bloom, Fink, Competency-Based)  
+• Include a global coherence check at the end  
+• Ensure strict exclusion of any internal documents  
+• Cite authoritative external educational research where applicable  
+• Maintain consistency in terminology, cognitive level verbs, and progression  
+```
+
+=======================================
+== 3. DEEP RESEARCH TEMPLATE (INSERT YOURS HERE) ==
+===================================================
+
+```
+[PASTE YOUR FULL DEEP RESEARCH PROMPT TEMPLATE HERE, EXACTLY AS IS, UNMODIFIED]
+```
+
+(You must paste *your own* Deep Research Template from your GPT.
+This placeholder ensures Kimi applies your meta-prompt format.)
+
+=======================================
+== 4. AGENT ROLES (USED FOR ALL LOOPS) ==
+=========================================
+
+```
+AGENT 1 — ANALYST  
+Purpose: Expand, clarify, refine learning objectives.  
+Actions:  
+• Strengthen cognitive verbs  
+• Ensure Bloom-level progression  
+• Check 4-level LO ladder (F → I → A → E)  
+• Identify missing or implicit concepts  
+• Improve clarity and specificity  
+
+AGENT 2 — ARCHITECT  
+Purpose: Ensure instructional-design structure.  
+Actions:  
+• Add prerequisite knowledge  
+• Align LO to assessment formats  
+• Ensure integration with frameworks (Bloom, Fink, CBE)  
+• Normalize structure and sequence  
+• Remove redundancy from Analyst output  
+
+AGENT 3 — CRITIC  
+Purpose: Evaluate and stress-test.  
+Rubric (1–5 each):  
+1. Clarity  
+2. Completeness  
+3. Instructional Validity  
+4. Research Rigor  
+5. Operational Usability  
+6. Role Alignment  
+7. Cohesion  
+Actions:  
+• Score each dimension  
+• Identify issues  
+• Produce adversarial critique  
+• Highlight vague verbs, gaps, contradictions  
+
+AGENT 4 — INTEGRATOR  
+Purpose: Merge, polish, resolve.  
+Actions:  
+• Fix all Critic issues  
+• Harmonize terminology  
+• Strengthen cognitive-progression ladder  
+• Ensure self-contained, final-quality output  
+```
+
+=======================================
+== 5. MICRO LOOP PROMPT (PER CLUSTER) ==
+========================================
+
+```
+MICRO LOOP INSTRUCTIONS (PER CLUSTER)
+
+You will perform a 4-agent critique loop on the Learning Objectives for this single cluster.
+
+Cluster Provided:
+[PASTE ONE CLUSTER ONLY]
+
+LO Levels Required:  
+• Foundational  
+• Intermediate  
+• Advanced  
+• Expert / Architect  
+
+Process:
+
+PHASE 1 — ANALYST  
+Expand and clarify LOs for this cluster.  
+Strengthen Bloom verbs.  
+Ensure 4-level progression (F → I → A → E).  
+Add missing conceptual elements.  
+Output: Draft A.
+
+PHASE 2 — ARCHITECT  
+Refine Draft A using instructional design best practices.  
+Add prerequisites.  
+Align each LO with Bloom, Fink, and competency-based frameworks.  
+Ensure assessment alignment (evidence of mastery).  
+Output: Draft B.
+
+PHASE 3 — CRITIC  
+Evaluate Draft B using the 7-dimension rubric.  
+Score each dimension 1–5.  
+Identify ambiguity, redundancy, weak verbs, or unclear outcomes.  
+Output: Critique Report.
+
+PHASE 4 — INTEGRATOR  
+Resolve all Critic issues.  
+Improve clarity, structure, precision, and completeness.  
+Output: Final LO Set for this cluster.
+
+End.
+```
+
+=======================================
+== 6. MESO LOOP PROMPT (PER THEMATIC GROUP) ==
+==============================================
+
+```
+MESO LOOP INSTRUCTIONS (PER GROUP)
+
+You will refine this group of clusters using a 4-agent critique loop.
+
+Input: Final LO sets for clusters [X–Y]
+
+Process:
+
+PHASE 1 — ANALYST  
+Identify redundancies, inconsistencies, and conceptual drift across clusters.  
+Normalize terminology.  
+Identify opportunities for merging or separating LOs.
+
+PHASE 2 — ARCHITECT  
+Ensure the group has a coherent learning progression.  
+Align prerequisites across clusters.  
+Ensure skill progression flows logically within the group.  
+Add missing cross-cluster integration elements.
+
+PHASE 3 — CRITIC  
+Apply the rubric at the group level.  
+Identify gaps, overlaps, structural issues.  
+Score the group across the seven rubric dimensions.
+
+PHASE 4 — INTEGRATOR  
+Merge all improvements.  
+Produce a unified, coherence-validated LO document for this group.
+
+End.
+```
+
+=======================================
+== 7. MACRO LOOP PROMPT (FULL CATALOGUE) ==
+===========================================
+
+```
+MACRO LOOP INSTRUCTIONS (FULL CATALOGUE)
+
+You will perform a 4-agent critique loop on the entire LO catalogue.
+
+Process:
+
+PHASE 1 — ANALYST  
+Normalize terminology across groups.  
+Ensure global cognitive progression (F → I → A → E).  
+Identify holistic sequencing improvements.  
+Ensure consistent LO counts where appropriate.
+
+PHASE 2 — ARCHITECT  
+Align entire catalogue to:  
+• Bloom’s Revised Taxonomy  
+• Fink’s Framework  
+• Competency-based education models  
+Ensure assessment alignment for the full program.  
+Add global prerequisites and learning pathways.
+
+PHASE 3 — CRITIC  
+Apply rubric at the full-catalogue level.  
+Identify systemic issues, redundancies, contradictions, gaps.  
+Score across the seven dimensions.
+
+PHASE 4 — INTEGRATOR  
+Produce the final, coherence-validated, publication-quality LO catalogue.
+
+End.
+```
+
+=======================================
+== 8. CONTEXT-SAFETY RULES ==
+=============================
+
+```
+CONTEXT SAFETY RULES
+
+Rule 1 — Only load ONE cluster in the Micro Loop at a time.  
+Rule 2 — Meso Loop loads ONLY the final micro outputs (2–4 clusters).  
+Rule 3 — Macro Loop loads ONLY meso outputs.  
+Rule 4 — After each loop, save the output externally and clear context.  
+Rule 5 — Never feed drafts forward—only final outputs from each stage.  
+Rule 6 — Reset conversation between loops.  
+Rule 7 — Never present all clusters at once until the macro stage.
+```
+
+=======================================
+== 9. WORKFLOW ORDER ==
+=======================
+
+```
+WORKFLOW ORDER
+
+STEP 1 — Run the MICRO LOOP for each of the 17 clusters.  
+STEP 2 — Save 17 files as: cluster_[number]_final.txt  
+STEP 3 — Run the MESO LOOP for each thematic group.  
+STEP 4 — Save 6 files as: mesogroup_[number]_final.txt  
+STEP 5 — Run the MACRO LOOP using only the meso files.  
+STEP 6 — Save final deliverable as: LO_catalogue_FINAL.txt
+```
+
+=======================================
+== 10. OPTIONAL AUTOMATION TEMPLATE ==
+======================================
+
+```
+AUTOMATION TEMPLATE (OPTIONAL)
+
+Instruction:
+You are an automated multi-stage LO critique engine.  
+Execute the Micro → Meso → Macro workflow exactly as described,  
+using strict 4-agent loops at each stage.  
+At each stage, wait for user input (cluster or meso group).  
+Never continue automatically.  
+After each stage, output the final result in clean text.  
+Always enforce:
+• Bloom alignment  
+• Fink integration  
+• Competency-based measurability  
+• Prerequisite mapping  
+• Evidence-of-mastery statements  
+• Redundancy removal  
+• Terminology normalization  
+• Final coherence checks
+
+1. Intended Audience / Learner Profile
+The intended learners are advanced industry professionals, AI practitioners, system designers, and senior technologists seeking mastery of multi-agent architectures, prompt engineering, Advisor-agent systems, and human-in-the-loop AI workflows. The curriculum should be approachable for advanced university learners but optimized for professional and applied contexts.
+
+2. External Frameworks / Standards to Prioritize
+Prioritize:
+• Bloom’s Revised Taxonomy (primary cognitive framework)
+• Fink’s Significant Learning Framework (holistic integration)
+• Competency-Based Education models (measurability)
+• ACM/IEEE curricular guidelines for computing and AI
+• NIST AI Risk Management Framework
+• OECD AI Principles
+• EU AI Act risk-based classification (for governance/safety clusters)
+• ISO/IEC 42001 AI Management System
+These should be treated as the authoritative references for LO design, structure, and assessment.
+
+3. Structural Format for the LOs
+Use a hybrid structure combining:
+• Modular sequencing (per cluster)
+• Linear progression (F → I → A → E within clusters)
+• Competency-based elements (measurable performance criteria)
+• Cross-cluster integration points (meso-level alignment)
+• Capstone synthesis (macro-level integration)
+This format supports stacked learning, professional application, and curriculum scalability.
+
+4. Preferred Citation Style / Format
+Use APA 7 style references for academic clarity and professional readability.  
+Citations should be concise and limited to authoritative educational, AI, and standards-based sources.
+
+5. Preferred Final Output File Format
+Primary: Markdown (for portability and versioning)  
+Secondary: PDF (typeset final deliverable after macro loop)  
+Optionally: DOCX if needed for editing or institutional use.

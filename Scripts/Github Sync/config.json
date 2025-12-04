@@ -1,0 +1,10 @@
+{
+  "git_executable": "C:\\Users\\JoshMain\\AppData\\Local\\GitHubDesktop\\app-3.5.4\\resources\\app\\git\\cmd\\git.exe",
+  "main_directory": "C:\\Soul_Algorithm",
+  "check_interval_seconds": 5,
+  "size_threshold_bytes": 5242880,
+  "repository_directory": "C:\\Users\\JoshMain\\Documents\\Working-DIR\\Repo",
+  "toast_duration_seconds": 3,
+  "max_retries": 3,
+  "script_directory": "C:\\Soul_Algorithm\\Scripts\\Github Sync"
+}

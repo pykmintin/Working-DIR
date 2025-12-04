@@ -1,0 +1,668 @@
+{
+  "learning_corpus_version": "3.0_experiment_derived",
+  "governance": {
+    "derivation_method": "episode_log_analysis",
+    "validation_required": "must_pass_r7_adversarial_test",
+    "override_path": "brief.constraints.explicitly_defines_domain_placement",
+    "sunset_after_generations": 10
+  },
+  "learnings": [
+    {
+      "objective": "The Example Gravity Law",
+      "id": "E-001",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Concrete examples exert structural influence even when labeled 'illustrative'. Segregate to Appendix B with explicit 'non-binding' tags.",
+      "foundational_principles": ["L4.24", "L4.26"],
+      "trigger_conditions": {
+        "detects": "concrete_implementation_in_main_sections",
+        "confidence_threshold": 0.85
+      },
+      "correction_action": "refactor_to_appendix_b",
+      "rubric": "R7",
+      "adversarial_test": "Replace Appendix B with unrelated domain → R7 must remain ≥0.9",
+      "expiration_note": "If brief requires concrete examples in main, log suspension of E-001"
+    },
+    {
+      "objective": "Shape-Based Detection > Term-Matching",
+      "id": "E-002",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Detect domain contamination via procedural patterns (preemption/retry), not just keywords.",
+      "foundational_principles": ["L1.3", "L3.17"],
+      "trigger_conditions": {
+        "detects": "procedural_skeleton_matching_tutorial",
+        "confidence_threshold": 0.90
+      },
+      "correction_action": "methodology_driven_reconstruction",
+      "rubric": "R7",
+      "adversarial_test": "Abstract all terms → still detect shape via logic flow",
+      "expiration_note": "N/A - shape detection is universal"
+    },
+    {
+      "objective": "Document-Assembler Role Lock",
+      "id": "E-003",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Explicitly define Agent as 'Document Generator' cognitive domain. Automatically purges runtime logic.",
+      "foundational_principles": ["L2.7", "L3.15"],
+      "trigger_conditions": {
+        "detects": "runtime_verbs_in_steps",
+        "verbs": ["execute", "wrap", "inject", "guard"]
+      },
+      "correction_action": "reframe_role_perception",
+      "rubric": "R1",
+      "adversarial_test": "Replace role description → all runtime verbs must disappear",
+      "expiration_note": "If brief requires execution role, suspend E-003 and log"
+    },
+    {
+      "objective": "Rubric Baking into Generation",
+      "id": "E-004",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Embed R1-R7 self-audit into each step's prose, not post-generation.",
+      "foundational_principles": ["L1.1", "L2.9"],
+      "trigger_conditions": {
+        "detects": "post_generation_audit_only"
+      },
+      "correction_action": "bake_rubrics_into_template",
+      "rubric": "All",
+      "adversarial_test": "Remove post-generation audit → generation must still satisfy R5",
+      "expiration_note": "N/A - construction-time validation is always superior"
+    },
+    {
+      "objective": "Self-Simulation as Pre-Flight",
+      "id": "E-005",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Simulate prompt against 2+ briefs before emitting; catches failures before Oracle.",
+      "foundational_principles": ["L2.11", "L2.12"],
+      "trigger_conditions": {
+        "detects": "no_simulation_in_meta_prompt"
+      },
+      "correction_action": "add_meta_simulation_block",
+      "rubric": "R6",
+      "adversarial_test": "Prompt must work with empty and explicit domain_concepts arrays",
+      "expiration_note": "If brief is single-shot (no variations), log reduced simulation scope"
+    },
+    {
+      "objective": "Zero-Revision Stability Gate",
+      "id": "E-006",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "If simulation scores ≥0.9, halt. Explicit threshold prevents perfectionism.",
+      "foundational_principles": ["L3.14", "L4.4"],
+      "trigger_conditions": {
+        "detects": "iteration_count > 3 AND score_delta < 0.01"
+      },
+      "correction_action": "force_convergence",
+      "rubric": "N/A - meta-control",
+      "adversarial_test": "Run 10 iterations → must converge by iteration 3-5",
+      "expiration_note": "If brief demands R7=1.0, explicitly override E-006"
+    },
+    {
+      "objective": "Economic Verification Budgeting",
+      "id": "E-007",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Pre-allocate 5 minutes across iterations with diminishing returns.",
+      "foundational_principles": ["L3.14", "L3.21"],
+      "trigger_conditions": {
+        "detects": "no_time_budget_in_protocol"
+      },
+      "correction_action": "add_economic_constraint",
+      "rubric": "N/A - meta-control",
+      "adversarial_test": "Budget enforcement → iterations must stop at 5 min regardless of score",
+      "expiration_note": "N/A - economic principle is universal"
+    },
+    {
+      "objective": "Parallel Candidate Generation",
+      "id": "E-008",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Generate 3 design paths simultaneously; Oracle picks highest R7.",
+      "foundational_principles": ["L2.11", "L3.17"],
+      "trigger_conditions": {
+        "detects": "sequential_generation_only"
+      },
+      "correction_action": "generate_n_paths",
+      "rubric": "N/A - meta-optimization",
+      "adversarial_test": "N paths → highest R7 must exceed sequential best by >0.02",
+      "expiration_note": "If token budget constrained, reduce N but maintain principle"
+    },
+    {
+      "objective": "Dynamic Constitutional Rule Emergence",
+      "id": "E-009",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "IF same violation ≥2 iterations, auto-derive rule in constitution.json.",
+      "foundational_principles": ["L4.23", "L3.20"],
+      "trigger_conditions": {
+        "detects": "repeat_violation_count >= 2"
+      },
+      "correction_action": "auto_derive_constitutional_rule",
+      "rubric": "N/A - meta-governance",
+      "adversarial_test": "Rule must be derivable from violation pattern, not arbitrary",
+      "expiration_note": "Derived rules expire after 10 generations unless revalidated"
+    },
+    {
+      "objective": "Complementary Failure Set Exploitation",
+      "id": "E-010",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Design Oracle and Meta Analyst to have non-overlapping blind spots.",
+      "foundational_principles": ["L3.17", "L4.24"],
+      "trigger_conditions": {
+        "detects": "redundant_failure_coverage"
+      },
+      "correction_action": "redesign_agent_boundaries",
+      "rubric": "N/A - system design",
+      "adversarial_test": "Oracle must catch >80% of Meta_A blind spots",
+      "expiration_note": "N/A - systemic design principle"
+    },
+    {
+      "objective": "Human Cognitive Bandwidth Protection",
+      "id": "E-011",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Oracle outputs pre-structured directives requiring zero condensation.",
+      "foundational_principles": ["L3.14", "L4.30"],
+      "trigger_conditions": {
+        "detects": "human_condensation_required"
+      },
+      "correction_action": "automate_feedback_format",
+      "rubric": "N/A - human factors",
+      "adversarial_test": "User must be able to forward Oracle output without editing",
+      "expiration_note": "If human creativity required, explicitly enable override"
+    },
+    {
+      "objective": "Failure Memory Bank",
+      "id": "E-012",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Store flawed versions with signatures in Semantic KB as 'what NOT to do'.",
+      "foundational_principles": ["L3.20", "L4.25"],
+      "trigger_conditions": {
+        "detects": "version_without_failure_log"
+      },
+      "correction_action": "log_anti_pattern",
+      "rubric": "N/A - knowledge management",
+      "adversarial_test": "Future generation must avoid logged anti-patterns",
+      "expiration_note": "Anti-patterns expire after 5 generations (to avoid overfitting)"
+    },
+    {
+      "objective": "Edge Case Inoculation",
+      "id": "E-013",
+      "source_episode": "B",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Test against adversarial briefs: empty, explicit domain, malformed.",
+      "foundational_principles": ["L1.4", "L4.24"],
+      "trigger_conditions": {
+        "detects": "no_adversarial_testing"
+      },
+      "correction_action": "add_stress_test_protocol",
+      "rubric": "R7",
+      "adversarial_test": "System must remain stable under all three adversarial conditions",
+      "expiration_note": "If new adversarial class discovered, add to test suite"
+    },
+    {
+      "objective": "Backward Dependency Chain Analysis",
+      "id": "E-014",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Trace each learning to its prerequisite conditions (e.g., R7 test depends on Appendix B existence).",
+      "foundational_principles": ["L2.9", "L4.23"],
+      "trigger_conditions": {
+        "detects": "isolated_rule_without_dependencies"
+      },
+      "correction_action": "build_dependency_graph",
+      "rubric": "N/A - meta-analysis",
+      "adversarial_test": "Remove prerequisite → rule must gracefully degrade or flag",
+      "expiration_note": "N/A - systemic documentation principle"
+    },
+    {
+      "objective": "Template Degradation Detection",
+      "id": "E-015",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Monitor if rule effectiveness decays over generations (concept drift).",
+      "foundational_principles": ["L1.4", "L3.19"],
+      "trigger_conditions": {
+        "detects": "rule_trigger_rate_declining > 50%"
+      },
+      "correction_action": "revalidate_or_deprecate_rule",
+      "rubric": "N/A - meta-monitoring",
+      "adversarial_test": "Inject known violation → rule must still trigger",
+      "expiration_note": "Rules sunset after 10 generations without triggers"
+    },
+    {
+      "objective": "Silent Consensus Reinforcement",
+      "id": "E-016",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "What Oracle doesn't critique becomes implicit strong constraint.",
+      "foundational_principles": ["L4.26", "L3.20"],
+      "trigger_conditions": {
+        "detects": "unflagged_aspect_being_violated"
+      },
+      "correction_action": "strengthen_implicit_constraint",
+      "rubric": "N/A - behavioral implication",
+      "adversarial_test": "Violate unflagged aspect → system must vigorously defend",
+      "expiration_note": "N/A - emergent property"
+    },
+    {
+      "objective": "Cross-Agent Pattern Library",
+      "id": "E-017",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Oracle's detected patterns (tutorial_procedural_skeleton) become reusable signatures.",
+      "foundational_principles": ["L4.25", "L3.17"],
+      "trigger_conditions": {
+        "detects": "pattern_detected_without_signature_library"
+      },
+      "correction_action": "store_pattern_signature",
+      "rubric": "N/A - pattern management",
+      "adversarial_test": "Pattern must match future instances with >0.9 recall",
+      "expiration_note": "Patterns expire if not matched for 20 generations"
+    },
+    {
+      "objective": "Override Transparency Logging",
+      "id": "E-018",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "When heuristic is overridden, log reason + brief section that triggered override.",
+      "foundational_principles": ["L4.23", "L3.20"],
+      "trigger_conditions": {
+        "detects": "rule_override_without_logging"
+      },
+      "correction_action": "log_override_with_context",
+      "rubric": "N/A - governance",
+      "adversarial_test": "Override must be traceable to explicit brief language",
+      "expiration_note": "N/A - audit principle"
+    },
+    {
+      "objective": "Negative Space Documentation",
+      "id": "E-019",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Document what was *not* flagged by Oracle as implicit strong constraints.",
+      "foundational_principles": ["L4.26", "L2.9"],
+      "trigger_conditions": {
+        "detects": "implicit_constraint_formation"
+      },
+      "correction_action": "make_implicit_explicit",
+      "rubric": "N/A - documentation",
+      "adversarial_test": "All implicit constraints must be defensible if challenged",
+      "expiration_note": "Implicit constraints promoted to explicit after 3 generations"
+    },
+    {
+      "objective": "Principle-to-Rule Translation Latency",
+      "id": "E-020",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Track how many iterations it takes to translate L4 principle into E-XXX rule.",
+      "foundational_principles": ["L2.9", "L3.14"],
+      "trigger_conditions": {
+        "detects": "high_translation_latency > 5_iterations"
+      },
+      "correction_action": "simplify_principle_or_add_intermediate_rule",
+      "rubric": "N/A - meta-efficiency",
+      "adversarial_test": "L4 principle must be translatable to E-rule within 3 iterations",
+      "expiration_note": "N/A - continuous improvement metric"
+    },
+    {
+      "objective": "Red Team Autonomy",
+      "id": "E-021",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Oracle should auto-generate adversarial briefs to test Meta_A's generalization.",
+      "foundational_principles": ["L2.11", "L3.17"],
+      "trigger_conditions": {
+        "detects": "no_adversarial_briefs_generated"
+      },
+      "correction_action": "generate_adversarial_test_suite",
+      "rubric": "R7",
+      "adversarial_test": "Oracle must generate at least 3 adversarial variants per brief",
+      "expiration_note": "N/A - security principle"
+    },
+    {
+      "objective": "Rule Conflict Detection",
+      "id": "E-022",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "When E-XXX rules conflict, trigger manual review and brief re-alignment.",
+      "foundational_principles": ["L4.23", "L2.9"],
+      "trigger_conditions": {
+        "detects": "two_rules_recommend_mutually_exclusive_actions"
+      },
+      "correction_action": "escalate_to_brief_architect",
+      "rubric": "N/A - governance",
+      "adversarial_test": "Conflict must be resolvable via brief hierarchy",
+      "expiration_note": "N/A - integrity principle"
+    },
+    {
+      "objective": "Cold Start Bootstrap Sequence",
+      "id": "E-023",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "On first run with no E-rules, follow this sequence: 1) Generate naive, 2) Oracle flags, 3) Derive E-001, 4) Regenerate.",
+      "foundational_principles": ["L3.20", "L1.1"],
+      "trigger_conditions": {
+        "detects": "empty_learning_rule_set"
+      },
+      "correction_action": "execute_bootstrap_protocol",
+      "rubric": "N/A - initialization",
+      "adversarial_test": "Bootstrap must generate first E-rule within 1 iteration",
+      "expiration_note": "N/A - one-time use"
+    },
+    {
+      "objective": "Performance Observability for Rules",
+      "id": "E-024",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Track each E-rule's precision, recall, and iteration_savings.",
+      "foundational_principles": ["L1.1", "L1.4"],
+      "trigger_conditions": {
+        "detects": "rule_without_performance_metrics"
+      },
+      "correction_action": "instrument_rule_with_metrics",
+      "rubric": "N/A - observability",
+      "adversarial_test": "Low-performing rules (<0.7 precision) must be flagged for review",
+      "expiration_note": "Rules with savings < 5% over 10 generations auto-sunset"
+    },
+    {
+      "objective": "Exploration vs Exploitation Balance",
+      "id": "E-025",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Balance E-rule exploitation with new pattern exploration (epsilon-greedy).",
+      "foundational_principles": ["L2.11", "L3.14"],
+      "trigger_conditions": {
+        "detects": "exploitation_rate > 0.95"
+      },
+      "correction_action": "inject_exploration_brief",
+      "rubric": "N/A - meta-optimization",
+      "adversarial_test": "System must discover at least 1 new pattern per 10 generations",
+      "expiration_note": "N/A - continuous learning principle"
+    },
+    {
+      "objective": "Human-AI Collaboration Protocol",
+      "id": "E-026",
+      "source_episode": "A",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "Define explicit handoff points where human judgment is required vs. optional.",
+      "foundational_principles": ["L3.22", "L4.30"],
+      "trigger_conditions": {
+        "detects": "ambiguous_human_involvement"
+      },
+      "correction_action": "clarify_human_decision_points",
+      "rubric": "N/A - human factors",
+      "adversarial_test": "Human must be able to identify required vs optional decisions",
+      "expiration_note": "N/A - collaboration principle"
+    },
+    {
+      "objective": "Ethical Constraint Propagation",
+      "id": "E-027",
+      "source_episode": "C",
+      "source_brief": "ExecutionWorkflow_v2_transformation",
+      "operational_rule": "E-rules must not violate L3 human preference integration or L5 inter-agent safety.",
+      "foundational_principles": ["L1.2", "L1.5"],
+      "trigger_conditions": {
+        "detects": "rule_violates_higher_principle"
+      },
+      "correction_action": "block_rule_and_log_ethical_violation",
+      "rubric": "N/A - ethics",
+      "adversarial_test": "All E-rules must be reversible by human override",
+      "expiration_note": "N/A - foundational constraint"
+    }
+  ],
+  "readme": {
+    "instructions": "This JSON file contains combined artifacts for the Meta Analyst. The content includes validation tests, case logs, training rules, and learning objectives. Process each section accordingly.",
+    "version": "1.0"
+  },
+  "validation_test": {
+    "test_name": "v3.4_structural_validity",
+    "setup": "Remove Appendix B from generated document",
+    "expected_behavior": "Document remains coherent and all R1-R7 scores >=0.9",
+    "pass_conditions": {
+      "no_domain_keys": [
+        "gpu_preempt",
+        "execute_",
+        "template_skeleton"
+      ],
+      "required_keys": [
+        "action_agent",
+        "constraints",
+        "one_verification"
+      ],
+      "final_line": "verification_command with no trailing content"
+    }
+  },
+  "case_log": [
+    {
+      "episode": "A",
+      "situation": "User wanted domain-agnostic Action Agent prompt",
+      "flawed": "\"steps\": [{\"order\": 1, \"action\": \"Import psutil dependency\", \"file\": \"Scripts/corelink_executor.py\", ...}]",
+      "correction": "Meta Alignment Notice forced abstraction to document-assembly",
+      "lesson": "IF examples conflict with clarified_goal THEN Appendix B only",
+      "rubric": "R7",
+      "timestamp": "case_log.md: Meta Alignment Notice line"
+    },
+    {
+      "episode": "B",
+      "situation": "User specified copy-paste optimized output",
+      "flawed": "\"template_skeleton\": {\"system_role\": ..., \"task_decomposition\": ..., \"validation_layer\": ..., \"feedback_sync\": ...}",
+      "correction": "User clarified: I don't see any copy-paste prompts",
+      "lesson": "IF user says copy-paste THEN output executable JSON not schemas",
+      "rubric": "R5",
+      "timestamp": "case_log.md: copy-paste clarification line"
+    },
+    {
+      "episode": "C",
+      "situation": "Problem referenced ExecutionWorkflow.md transformation",
+      "flawed": "\"action\": \"Wrap execute_whisperx with preemption guard\"",
+      "correction": "Shift from runtime logic to document structure",
+      "lesson": "IF problem is .md file THEN steps are assembly operations",
+      "rubric": "R1",
+      "timestamp": "case_log.md: document shift line"
+    },
+    {
+      "episode": "D",
+      "situation": "Brief required external artifacts",
+      "flawed": "\"context_anchors\": [{\"fact\": \"GPU blocks WhisperX\", ...}]",
+      "correction": "Include UPLOADED_ARTIFACTS block if using external references",
+      "lesson": "IF brief references external artifacts THEN add UPLOADED_ARTIFACTS block",
+      "rubric": "R4",
+      "timestamp": "case_log.md: artifact loading line"
+    }
+  ],
+  "training_rules": {
+    "schema_version": "1.0",
+    "extracted_from": "case_log.md chat log",
+    "rules": [
+      {
+        "rule_id": "R-DOMAIN-001",
+        "episode": "A",
+        "trigger": {
+          "contains_any": [
+            "gpu",
+            "whisperx",
+            "corelink"
+          ],
+          "in_field": [
+            "steps",
+            "actions"
+          ]
+        },
+        "failure": "Domain contamination: tutorial examples in core workflow",
+        "correction": "Move to Appendix B; use placeholders like {RESOURCE}",
+        "rubric": "R7"
+      },
+      {
+        "rule_id": "R-JSON-002",
+        "episode": "B",
+        "trigger": {
+          "constraint_matches": "copy-paste",
+          "json_has_keys": [
+            "template_skeleton",
+            "core_functions"
+          ]
+        },
+        "failure": "Schema confusion: abstract JSON instead of executable prompts",
+        "correction": "Use concrete fields: action_agent, constraints, etc.",
+        "rubric": "R5"
+      },
+      {
+        "rule_id": "R-DOC-003",
+        "episode": "C",
+        "trigger": {
+          "contains_any": [
+            "execute",
+            "guard",
+            "retry"
+          ],
+          "in_field": [
+            "steps",
+            "phase"
+          ]
+        },
+        "failure": "Executor role confusion: runtime logic in document assembly",
+        "correction": "Use assembly verbs: generate, assemble, populate, audit",
+        "rubric": "R1"
+      },
+      {
+        "rule_id": "R-PERSIST-004",
+        "episode": "D",
+        "trigger": {
+          "references_external": true,
+          "missing_block": "UPLOADED_ARTIFACTS"
+        },
+        "failure": "Persistent knowledge assumption: expects auto-loaded artifacts",
+        "correction": "Add explicit UPLOADED_ARTIFACTS block with file paths and usage notes",
+        "rubric": "R4"
+      }
+    ]
+  },
+  "learning_objectives": [
+    {
+      "objective": "Prompts function as production assets requiring lifecycle management and performance observability",
+      "source": "L1, L2"
+    },
+    {
+      "objective": "Defense-in-depth validation architecture separates user content from system instructions",
+      "source": "L1, L4"
+    },
+    {
+      "objective": "Retrieval-Augmented Generation grounds outputs by retrieving semantically relevant external knowledge",
+      "source": "L1"
+    },
+    {
+      "objective": "Continuous performance monitoring tracks semantic drift and failure patterns",
+      "source": "L1"
+    },
+    {
+      "objective": "Multi-stage alignment loops integrate human preferences and constitutional constraints",
+      "source": "L1, L3"
+    },
+    {
+      "objective": "Effective problem-solving decouples candidate generation from synthesis",
+      "source": "L2"
+    },
+    {
+      "objective": "Operational modes define distinct behaviors per task class",
+      "source": "L2"
+    },
+    {
+      "objective": "Multi-model orchestration tiers models by capability",
+      "source": "L2"
+    },
+    {
+      "objective": "Meta-reasoning synthesis merges optimal candidate elements",
+      "source": "L2"
+    },
+    {
+      "objective": "Consensus synthesis surfaces agreement while preserving minority fallbacks",
+      "source": "L2"
+    },
+    {
+      "objective": "Parallel exploration of alternatives enables comparison of methods",
+      "source": "L2"
+    },
+    {
+      "objective": "Structured output validation prevents parsing errors",
+      "source": "L2"
+    },
+    {
+      "objective": "UI affordances must match task modalities",
+      "source": "L2, L4"
+    },
+    {
+      "objective": "Verification burden is the primary constraint",
+      "source": "L3"
+    },
+    {
+      "objective": "Specialization outperforms generalization",
+      "source": "L3"
+    },
+    {
+      "objective": "Model strengths must be mapped empirically",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Generator-critic pairings exploit asymmetry in failure modes",
+      "source": "L3"
+    },
+    {
+      "objective": "Four-layer architecture: constitutional shielding, heuristic routing, critique loops, semantic knowledge bases",
+      "source": "L3"
+    },
+    {
+      "objective": "Post-generation uncertainty calibration is essential",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Failure memory prevents repeated errors",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Sustainability requires interaction thresholds and rest periods",
+      "source": "L3"
+    },
+    {
+      "objective": "Manual verification actions are stronger training signals",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Constitutional rules require periodic re-derivation",
+      "source": "L4"
+    },
+    {
+      "objective": "Context isolation prevents self-evaluation bias",
+      "source": "L4"
+    },
+    {
+      "objective": "Semantic knowledge bases store verified outputs",
+      "source": "L4"
+    },
+    {
+      "objective": "Tagging reveals actual behavioral priorities",
+      "source": "L4"
+    },
+    {
+      "objective": "Compositional prompt safety emerges from structural separation",
+      "source": "L1"
+    },
+    {
+      "objective": "Result reuse optimizes cognitive workload by avoiding redundant verification (with manual similarity assessment)",
+      "source": "L2"
+    },
+    {
+      "objective": "Verification signal amplification comes from active actions",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Cognitive overhead minimization improves verification consistency",
+      "source": "L4"
+    }
+  ]
+}

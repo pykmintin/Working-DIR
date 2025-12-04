@@ -1,0 +1,152 @@
+{"timestamp": "2025-11-14T19:58:52.469689", "message": "COMPILE_START", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-14T19:58:52.471347", "message": "SAFE_WRITE_START", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py", "size": 8189}}
+{"timestamp": "2025-11-14T19:58:52.475179", "message": "ARCHIVE_CREATED", "data": {"from": "C:\\Soul_Algorithm\\Scripts\\Corelink.py", "to": "C:\\Soul_Algorithm\\Scripts\\..\\Archive\\Backups\\Corelink_20251114_195852.py", "size": 10922}}
+{"timestamp": "2025-11-14T19:58:52.477252", "message": "SAFE_WRITE_SUCCESS", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py", "final_size": 8189}}
+{"timestamp": "2025-11-14T19:58:52.477936", "message": "COMPILE_SUCCESS", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-14T20:17:46.445643", "message": "COMPILE_START", "version": "6.3.3", "data": {"action": "unknown"}}
+{"timestamp": "2025-11-14T20:17:46.446680", "message": "COMPILE_FAIL", "version": "6.3.3", "data": {"error": "Unknown action: unknown"}}
+{"timestamp": "2025-11-14T20:30:29.825166", "message": "COMPILE_START", "version": "6.3.4", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:30:29.826103", "message": "MAKE_FILE_START", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:30:29.827325", "message": "SAFE_WRITE_START", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:30:29.829301", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:30:29.830361", "message": "MAKE_FILE_SUCCESS", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:30:29.834297", "message": "COMPILE_SUCCESS", "version": "6.3.4", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:31:17.549400", "message": "COMPILE_START", "version": "6.3.4", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:31:17.550515", "message": "MAKE_FILE_START", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\update_test.txt"}}
+{"timestamp": "2025-11-14T20:31:17.552180", "message": "SAFE_WRITE_START", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\update_test.txt"}}
+{"timestamp": "2025-11-14T20:31:17.554327", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\update_test.txt"}}
+{"timestamp": "2025-11-14T20:31:17.556270", "message": "MAKE_FILE_SUCCESS", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\update_test.txt"}}
+{"timestamp": "2025-11-14T20:31:17.557345", "message": "COMPILE_SUCCESS", "version": "6.3.4", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:31:57.990169", "message": "COMPILE_START", "version": "6.3.4", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:31:57.990945", "message": "MAKE_FILE_START", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:31:57.992045", "message": "SAFE_WRITE_START", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:31:57.995634", "message": "ARCHIVE_CREATED", "version": "6.3.4", "data": {"from": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json", "to": "C:\\Soul_Algorithm\\Scripts\\..\\Archive\\Backups\\Corelink_schema_20251114_203157.json"}}
+{"timestamp": "2025-11-14T20:31:57.998863", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:31:58.000263", "message": "MAKE_FILE_SUCCESS", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:31:58.001142", "message": "COMPILE_SUCCESS", "version": "6.3.4", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:31:59.293502", "message": "COMPILE_START", "version": "6.3.4", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:31:59.294263", "message": "MAKE_FILE_START", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py"}}
+{"timestamp": "2025-11-14T20:31:59.295261", "message": "SAFE_WRITE_START", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py"}}
+{"timestamp": "2025-11-14T20:31:59.299993", "message": "ARCHIVE_CREATED", "version": "6.3.4", "data": {"from": "C:\\Soul_Algorithm\\Scripts\\Corelink.py", "to": "C:\\Soul_Algorithm\\Scripts\\..\\Archive\\Backups\\Corelink_20251114_203159.py"}}
+{"timestamp": "2025-11-14T20:31:59.304193", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py"}}
+{"timestamp": "2025-11-14T20:31:59.305458", "message": "MAKE_FILE_SUCCESS", "version": "6.3.4", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py"}}
+{"timestamp": "2025-11-14T20:31:59.306576", "message": "COMPILE_SUCCESS", "version": "6.3.4", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:35:29.560298", "message": "COMPILE_START", "version": "6.3.13", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:35:29.561180", "message": "MAKE_FILE_START", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\my_test_file.txt"}}
+{"timestamp": "2025-11-14T20:35:29.563729", "message": "SAFE_WRITE_START", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\my_test_file.txt"}}
+{"timestamp": "2025-11-14T20:35:29.567743", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\my_test_file.txt"}}
+{"timestamp": "2025-11-14T20:35:29.569235", "message": "MAKE_FILE_SUCCESS", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\my_test_file.txt"}}
+{"timestamp": "2025-11-14T20:35:29.570204", "message": "COMPILE_SUCCESS", "version": "6.3.13", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:50:06.202346", "message": "COMPILE_START", "version": "6.3.13", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:50:06.203036", "message": "MAKE_FILE_START", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py"}}
+{"timestamp": "2025-11-14T20:50:06.203790", "message": "SAFE_WRITE_START", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py"}}
+{"timestamp": "2025-11-14T20:50:06.208536", "message": "ARCHIVE_CREATED", "version": "6.3.13", "data": {"from": "C:\\Soul_Algorithm\\Scripts\\Corelink.py", "to": "C:\\Soul_Algorithm\\Scripts\\..\\Archive\\Backups\\Corelink_20251114_205006.py"}}
+{"timestamp": "2025-11-14T20:50:06.213056", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py"}}
+{"timestamp": "2025-11-14T20:50:06.214650", "message": "MAKE_FILE_SUCCESS", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink.py"}}
+{"timestamp": "2025-11-14T20:50:06.215626", "message": "COMPILE_SUCCESS", "version": "6.3.13", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:50:06.326654", "message": "COMPILE_START", "version": "6.3.13", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:50:06.327354", "message": "MAKE_FILE_START", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\CoreCompile.py"}}
+{"timestamp": "2025-11-14T20:50:06.328208", "message": "SAFE_WRITE_START", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\CoreCompile.py"}}
+{"timestamp": "2025-11-14T20:50:06.330783", "message": "ARCHIVE_CREATED", "version": "6.3.13", "data": {"from": "C:\\Soul_Algorithm\\Scripts\\CoreCompile.py", "to": "C:\\Soul_Algorithm\\Scripts\\..\\Archive\\Backups\\CoreCompile_20251114_205006.py"}}
+{"timestamp": "2025-11-14T20:50:06.333201", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\CoreCompile.py"}}
+{"timestamp": "2025-11-14T20:50:06.334029", "message": "MAKE_FILE_SUCCESS", "version": "6.3.13", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\CoreCompile.py"}}
+{"timestamp": "2025-11-14T20:50:06.334820", "message": "COMPILE_SUCCESS", "version": "6.3.13", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:56:24.370594", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-14T20:56:24.372155", "message": "MAKE_FILE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:56:24.374133", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:56:24.377478", "message": "ARCHIVE_CREATED", "version": "6.3.15", "data": {"from": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json", "to": "C:\\Soul_Algorithm\\Archive\\Backups\\Corelink_schema_20251114_205624.json"}}
+{"timestamp": "2025-11-14T20:56:24.380897", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:56:24.382192", "message": "MAKE_FILE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Scripts\\Corelink_schema.json"}}
+{"timestamp": "2025-11-14T20:56:24.383323", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "make_file"}}
+{"timestamp": "2025-11-15T21:00:31.222571", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:00:31.225820", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\training_rules.json"}}
+{"timestamp": "2025-11-15T21:00:31.228722", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\training_rules.json"}}
+{"timestamp": "2025-11-15T21:00:31.229967", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:00:31.383103", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:00:31.384845", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\case_log.jsonl"}}
+{"timestamp": "2025-11-15T21:00:31.389230", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\case_log.jsonl"}}
+{"timestamp": "2025-11-15T21:00:31.390870", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:00:31.522880", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:00:31.524555", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\validation_test.json"}}
+{"timestamp": "2025-11-15T21:00:31.526931", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\validation_test.json"}}
+{"timestamp": "2025-11-15T21:00:31.527991", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:01:50.363541", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:01:50.365735", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\CoreLink-Manifest.json"}}
+{"timestamp": "2025-11-15T21:01:50.368624", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\CoreLink-Manifest.json"}}
+{"timestamp": "2025-11-15T21:01:50.370605", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:04:39.102112", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:04:39.105660", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\CoreLink-Manifest.json"}}
+{"timestamp": "2025-11-15T21:04:39.111993", "message": "ARCHIVE_CREATED", "version": "6.3.15", "data": {"from": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\CoreLink-Manifest.json", "to": "C:\\Soul_Algorithm\\Archive\\Backups\\CoreLink-Manifest_20251115_210439.json"}}
+{"timestamp": "2025-11-15T21:04:39.115891", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\Meta Analyst learning pack\\CoreLink-Manifest.json"}}
+{"timestamp": "2025-11-15T21:04:39.118240", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:10:09.999256", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:10:10.001607", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "Path escape blocked: Scripts/Meta Analyst learning pack/training_rules.json"}}
+{"timestamp": "2025-11-15T21:11:24.770406", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:11:24.772089", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "Path escape blocked: Scripts/MetaAnalystlearningpack/training_rules.json"}}
+{"timestamp": "2025-11-15T21:14:22.608515", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:14:22.610490", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "Path escape blocked: Archive/MetaAnalystlearningpack/training_rules.json"}}
+{"timestamp": "2025-11-15T21:16:46.092222", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:16:46.094432", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "Path escape blocked: Archive/training_rules.json"}}
+{"timestamp": "2025-11-15T21:25:46.736979", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:25:46.738478", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Scripts\\CoreCompile.py"}}
+{"timestamp": "2025-11-15T21:25:46.740170", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "[Errno 13] Permission denied: 'C:\\\\Program Files\\\\Python314\\\\Scripts\\\\CoreCompile.tmp'"}}
+{"timestamp": "2025-11-15T21:26:30.321092", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:26:30.323526", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Scripts\\CoreCompile.py"}}
+{"timestamp": "2025-11-15T21:26:30.324674", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "[Errno 13] Permission denied: 'C:\\\\Program Files\\\\Python314\\\\Scripts\\\\CoreCompile.tmp'"}}
+{"timestamp": "2025-11-15T21:28:36.296264", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:28:36.299592", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Scripts\\CoreCompile.py"}}
+{"timestamp": "2025-11-15T21:28:36.301935", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "[Errno 13] Permission denied: 'C:\\\\Program Files\\\\Python314\\\\Scripts\\\\CoreCompile.tmp'"}}
+{"timestamp": "2025-11-15T21:29:40.468852", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:29:40.472258", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\ExecutionWorkflow_v3.4.md"}}
+{"timestamp": "2025-11-15T21:29:40.474533", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "[Errno 13] Permission denied: 'C:\\\\Program Files\\\\Python314\\\\ExecutionWorkflow_v3.4.tmp'"}}
+{"timestamp": "2025-11-15T21:35:02.378666", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:35:02.381782", "message": "COMPILE_FAIL", "version": "6.3.15", "data": {"error": "[WinError 5] Access is denied: 'C:\\\\Program Files\\\\Python314\\\\Archive'"}}
+{"timestamp": "2025-11-15T21:37:28.282042", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:37:28.286411", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\training_rules.json"}}
+{"timestamp": "2025-11-15T21:37:28.289723", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\training_rules.json"}}
+{"timestamp": "2025-11-15T21:37:28.290687", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:37:28.409752", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:37:28.411292", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\case_log.jsonl"}}
+{"timestamp": "2025-11-15T21:37:28.413285", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\case_log.jsonl"}}
+{"timestamp": "2025-11-15T21:37:28.414100", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:37:28.526902", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:37:28.528402", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\validation_test.json"}}
+{"timestamp": "2025-11-15T21:37:28.530936", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\validation_test.json"}}
+{"timestamp": "2025-11-15T21:37:28.531874", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:49:21.879193", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T21:49:21.882013", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md"}}
+{"timestamp": "2025-11-15T21:49:21.886345", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md"}}
+{"timestamp": "2025-11-15T21:49:21.887226", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T22:05:53.572985", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T22:05:53.575890", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md"}}
+{"timestamp": "2025-11-15T22:05:53.582911", "message": "ARCHIVE_CREATED", "version": "6.3.15", "data": {"from": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md", "to": "C:\\Soul_Algorithm\\Archive\\Backups\\ExecutionWorkflow_v2_template_20251115_220553.md"}}
+{"timestamp": "2025-11-15T22:05:53.587791", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md"}}
+{"timestamp": "2025-11-15T22:05:53.589346", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T22:12:52.521029", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T22:12:52.522905", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md"}}
+{"timestamp": "2025-11-15T22:12:52.528378", "message": "ARCHIVE_CREATED", "version": "6.3.15", "data": {"from": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md", "to": "C:\\Soul_Algorithm\\Archive\\Backups\\ExecutionWorkflow_v2_template_20251115_221252.md"}}
+{"timestamp": "2025-11-15T22:12:52.531645", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md"}}
+{"timestamp": "2025-11-15T22:12:52.532834", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T22:17:25.022835", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-15T22:17:25.025175", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md"}}
+{"timestamp": "2025-11-15T22:17:25.030487", "message": "ARCHIVE_CREATED", "version": "6.3.15", "data": {"from": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md", "to": "C:\\Soul_Algorithm\\Archive\\Backups\\ExecutionWorkflow_v2_template_20251115_221725.md"}}
+{"timestamp": "2025-11-15T22:17:25.035460", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Program Files\\Python314\\Workflows\\MetaAnalystlearningpack\\ExecutionWorkflow_v2_template.md"}}
+{"timestamp": "2025-11-15T22:17:25.036859", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-16T02:38:06.544547", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-16T02:38:06.546421", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\MetaAnalystlearningpack\\learning.json"}}
+{"timestamp": "2025-11-16T02:38:06.548566", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\MetaAnalystlearningpack\\learning.json"}}
+{"timestamp": "2025-11-16T02:38:06.550372", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-16T02:48:07.686276", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-16T02:48:07.687639", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\MetaAnalystlearningpack\\learning.json"}}
+{"timestamp": "2025-11-16T02:48:07.692152", "message": "ARCHIVE_CREATED", "version": "6.3.15", "data": {"from": "C:\\Soul_Algorithm\\Workflows\\MetaAnalystlearningpack\\learning.json", "to": "C:\\Soul_Algorithm\\Archive\\Backups\\learning_20251116_024807.json"}}
+{"timestamp": "2025-11-16T02:48:07.694747", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\MetaAnalystlearningpack\\learning.json"}}
+{"timestamp": "2025-11-16T02:48:07.696695", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-16T02:50:26.747370", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-16T02:50:26.748940", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Corelink_schema.json"}}
+{"timestamp": "2025-11-16T02:50:26.751496", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Corelink_schema.json"}}
+{"timestamp": "2025-11-16T02:50:26.752451", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-16T02:50:26.865842", "message": "COMPILE_START", "version": "6.3.15", "data": {"action": "safe_write"}}
+{"timestamp": "2025-11-16T02:50:26.867271", "message": "SAFE_WRITE_START", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\MetaAnalystlearningpack\\learning.json"}}
+{"timestamp": "2025-11-16T02:50:26.870976", "message": "ARCHIVE_CREATED", "version": "6.3.15", "data": {"from": "C:\\Soul_Algorithm\\Workflows\\MetaAnalystlearningpack\\learning.json", "to": "C:\\Soul_Algorithm\\Archive\\Backups\\learning_20251116_025026.json"}}
+{"timestamp": "2025-11-16T02:50:26.874210", "message": "SAFE_WRITE_SUCCESS", "version": "6.3.15", "data": {"target": "C:\\Soul_Algorithm\\Workflows\\MetaAnalystlearningpack\\learning.json"}}
+{"timestamp": "2025-11-16T02:50:26.875335", "message": "COMPILE_SUCCESS", "version": "6.3.15", "data": {"action": "safe_write"}}

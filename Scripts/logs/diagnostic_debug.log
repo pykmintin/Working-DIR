@@ -1,0 +1,4 @@
+[2025-11-08T14:59:13.144074] === Diagnostic v1.0 Started ===
+[2025-11-08T14:59:13.144907] JSON Error: [Errno 2] No such file or directory: 'C:\\Soul_Algorithm\\Scripts\\conversations.json'
+[2025-11-09T01:35:43.152455] === Diagnostic v1.0 Started ===
+[2025-11-09T01:35:43.153613] JSON Error: Extra data: line 1 column 4 (char 3)

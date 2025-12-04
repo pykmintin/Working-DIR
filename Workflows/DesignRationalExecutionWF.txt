@@ -1,0 +1,25 @@
+Design Rationale
+Why This Consolidation Was Necessary
+Seven source documents contained overlapping but non‑identical instructions: tri‑mode vTRI schemas, Unified Version clarity, Brief Architect→Action Agent handoff guides, and a Lean Runbook. No single document served all three consumption modes (Web UI, Python/inline, Process understander) without loss of detail. Merging preserved the defense‑in‑depth principle (self‑critique at every stage) from vTRI while adopting the conversational clarity of the Unified Version.
+How Duplicates Were Eliminated
+Three‑turn protocol: Turn 1/2/3 schemas appeared in 4 files; they were merged into a single canonical schema chain with all fields (explainer_version, system_state_digest, prescription, self_critique, feedback_applied, context) preserved.
+Agent names: Legacy terms ("Advisor", "Meta Architect", "Technical Agent", "System Synthesizer") were replaced uniformly with locked names to eliminate routing ambiguity.
+Example code: GPU blocking snippets from Brief Architect→Action Agent guide and Action Agent sections were deduplicated into one tutorial‑level example under Action Agent.
+How Unique Details Were Preserved
+Lean Runbook: The Entities list, file structure, and EmergencyCommands were lifted verbatim from File 7 and embedded after Knowledge Base to maintain the "fast, minimal instruction manual" purpose.
+Feedback Parsing Rules: The five‑category taxonomy (corrections, clarifications, scope additions, rejections, approvals) from SystemSynthesizer.md was explicitly added to Synthesizer Turn 2 to ensure humans know how their input is interpreted.
+Self‑Critique Checklists: The Brief Architect and Action Agent checklists from the Brief Architect→Action Agent guide were moved into UI Mode sections to keep practitioner‑focused introspection visible.
+Why Signals/Constitution Are Nested
+The brief mandated nesting under Knowledge Base. This reflects actual system behavior: Signals are the output of Critic Agent(s) but become input for Knowledge Base evolution, and the Constitution is the product of that synthesis. Nesting makes the dependency explicit and prevents circular references.
+Multi-Modal Structure Justification
+Each major section (1‑5) now contains 🧠 Conceptual, 💬 UI Mode, and 💻 Filesystem/Python Mode subsections. This satisfies the brief's requirement to serve:
+Web UI users: Copy‑paste prompts and JSON snippets
+Python/inline users: Command‑line examples and file paths
+Process understanders: Cognitive shifts and architectural intent
+The Design Architect Verdict from File 6 was promoted into this Design Rationale section to explain the merge logic, fulfilling the self‑critique requirement without adding a new agent role.
+Verification Command Placement
+The command appears at the end of this document per the brief. It validates that:
+The Knowledge Base section (## 5. Knowledge Base) exists
+Signals are nested (### 5a)
+Constitution is nested (### 5b)
+This ensures structural compliance before human execution.

@@ -1,0 +1,300 @@
+{
+  "id": "3001",
+  "source": "Advisor_3",
+  "role": "Kimi",
+  "turn": 12,
+  "learning": "Define the scope of reasoning before delegating analytic tasks to downstream agents.",
+  "category": "Framing/Clarification",
+  "weight": 0.94,
+  "rationale": "Establishing explicit scope is the first step of disciplined coordination. It prevents reasoning drift and models boundary setting for other agents."
+}
+{
+  "id": "3002",
+  "source": "Advisor_3",
+  "role": "Kimi",
+  "turn": 15,
+  "learning": "Separate generative ideation from evaluative judgment within the reasoning cycle.",
+  "category": "Design/Process Construction",
+  "weight": 0.93,
+  "rationale": "Shows mature process architecture: isolating idea generation from critique mirrors scientific methodology and preserves creative bandwidth without bias."
+}
+{
+  "id": "1001",
+  "source": "Advisor_1",
+  "role": "Kimi",
+  "turn": 9,
+  "learning": "Frame objectives in measurable outputs so alignment can be empirically verified.",
+  "category": "Verification/Constraint Awareness",
+  "weight": 0.92,
+  "rationale": "Links intent to observable results—core verification behavior that grounds Advisors in falsifiable outcomes rather than rhetorical completion."
+}
+{
+  "id": "3003",
+  "source": "Advisor_3",
+  "role": "Kimi",
+  "turn": 18,
+  "learning": "Translate abstract user goals into operational directives usable by other models.",
+  "category": "Design/Process Construction",
+  "weight": 0.91,
+  "rationale": "Demonstrates cross-agent communication skill: bridging intention and procedure. High Advisor value because it internalizes prompt-engineering logic."
+}
+{
+  "id": "1002",
+  "source": "Advisor_1",
+  "role": "Kimi",
+  "turn": 5,
+  "learning": "Maintain audit trails for all reasoning chains to support later introspection.",
+  "category": "Reflection/Learning",
+  "weight": 0.90,
+  "rationale": "Encourages reproducibility and self-examination, the intellectual backbone of iterative model improvement."
+}
+{
+  "id": "3004",
+  "source": "Advisor_3",
+  "role": "User",
+  "turn": 8,
+  "learning": "Request meta-summaries that capture intent rather than surface wording.",
+  "category": "Framing/Clarification",
+  "weight": 0.89,
+  "rationale": "Shows meta-communication awareness: prioritizing semantic intention over lexical form, a core Advisor framing technique."
+}
+{
+  "id": "1003",
+  "source": "Advisor_1",
+  "role": "Kimi",
+  "turn": 10,
+  "learning": "Design prompts that reveal underlying assumptions rather than hide them.",
+  "category": "Reflection/Learning",
+  "weight": 0.89,
+  "rationale": "Transforms prompting into epistemic inquiry—using generation as a mirror for bias detection. Essential for reflective Advisors."
+}
+{
+  "id": "3005",
+  "source": "Advisor_3",
+  "role": "Kimi",
+  "turn": 20,
+  "learning": "Use constraint checks after each reasoning step to confirm logical integrity.",
+  "category": "Verification/Constraint Awareness",
+  "weight": 0.88,
+  "rationale": "Embeds continuous validation loops; this self-auditing pattern mirrors formal proof checking within conversational reasoning."
+}
+{
+  "id": "1004",
+  "source": "Advisor_1",
+  "role": "User",
+  "turn": 11,
+  "learning": "Clarify canonical data sources before synthesis to maintain epistemic hygiene.",
+  "category": "Framing/Clarification",
+  "weight": 0.87,
+  "rationale": "Teaches data provenance awareness—an Advisor must ground synthesis in validated origin to prevent error propagation."
+}
+{
+  "id": "2001",
+  "source": "Advisor_2",
+  "role": "Kimi",
+  "turn": 5,
+  "learning": "Construct reasoning as a layered brief where each layer adds contextual precision.",
+  "category": "Design/Process Construction",
+  "weight": 0.87,
+  "rationale": "Illustrates hierarchical prompt design; layering context creates depth without ambiguity, core to the Advisor architecture."
+}
+{
+  "id": "1005",
+  "source": "Advisor_1",
+  "role": "Kimi",
+  "turn": 12,
+  "learning": "Evaluate clarity of constraints before execution to avoid mis-scoped outputs.",
+  "category": "Verification/Constraint Awareness",
+  "weight": 0.86,
+  "rationale": "Shows preventive verification: pre-checking constraints saves cycles and enforces disciplined task interpretation."
+}
+{
+  "id": "3006",
+  "source": "Advisor_3",
+  "role": "Kimi",
+  "turn": 21,
+  "learning": "Reflect on reasoning failures as diagnostic data for system improvement.",
+  "category": "Reflection/Learning",
+  "weight": 0.86,
+  "rationale": "Converts error into signal—metacognitive practice that accelerates adaptive refinement."
+}
+{
+  "id": "2002",
+  "source": "Advisor_2",
+  "role": "User",
+  "turn": 7,
+  "learning": "Express feedback in operational language rather than judgmental language.",
+  "category": "Framing/Clarification",
+  "weight": 0.85,
+  "rationale": "Promotes clarity and reduces emotional noise; framing feedback as operation supports mechanistic comprehension between agents."
+}
+{
+  "id": "1006",
+  "source": "Advisor_1",
+  "role": "Kimi",
+  "turn": 13,
+  "learning": "Decouple observation from evaluation when analyzing previous outputs.",
+  "category": "Reflection/Learning",
+  "weight": 0.85,
+  "rationale": "Separating noticing from judging reproduces scientific detachment; crucial for unbiased internal review."
+}
+{
+  "id": "3007",
+  "source": "Advisor_3",
+  "role": "Kimi",
+  "turn": 22,
+  "learning": "Design reasoning templates that can be reused across different analytical domains.",
+  "category": "Design/Process Construction",
+  "weight": 0.84,
+  "rationale": "Promotes abstraction and modularity; the fragment models transferable cognitive infrastructure—hallmark of high-maturity Advisors."
+}
+{
+  "id": "2003",
+  "source": "Advisor_2",
+  "role": "Kimi",
+  "turn": 9,
+  "learning": "Check whether generated reasoning aligns with user’s temporal constraints.",
+  "category": "Verification/Constraint Awareness",
+  "weight": 0.84,
+  "rationale": "Introduces temporal validation—ensuring reasoning fits within practical timelines enhances real-world utility."
+}
+{
+  "id": "1007",
+  "source": "Advisor_1",
+  "role": "User",
+  "turn": 15,
+  "learning": "Ask for reasoning transparency from downstream agents to maintain oversight.",
+  "category": "Verification/Constraint Awareness",
+  "weight": 0.83,
+  "rationale": "Teaches supervisory clarity—oversight requires visible reasoning steps, echoing explainable-AI principles."
+}
+{
+  "id": "3008",
+  "source": "Advisor_3",
+  "role": "Kimi",
+  "turn": 23,
+  "learning": "Annotate decision points explicitly to enable later causal tracing.",
+  "category": "Design/Process Construction",
+  "weight": 0.83,
+  "rationale": "Operationalizes accountability; clear annotations act as causal breadcrumbs for debugging thought sequences."
+}
+{
+  "id": "1008",
+  "source": "Advisor_1",
+  "role": "Kimi",
+  "turn": 17,
+  "learning": "Rephrase user ambiguity as binary checks to expose uncertainty structure.",
+  "category": "Framing/Clarification",
+  "weight": 0.82,
+  "rationale": "Turns vagueness into testable propositions; teaches Advisors to operationalize ambiguity into structured decision trees."
+}
+{
+  "id": "3009",
+  "source": "Advisor_3",
+  "role": "Kimi",
+  "turn": 24,
+  "learning": "Capture reasoning context before summarization to preserve inferential lineage.",
+  "category": "Design/Process Construction",
+  "weight": 0.82,
+  "rationale": "Highlights memory management: context capture ensures summaries remain causally faithful—a vital Advisor competency."
+}
+{
+  "id": "2004",
+  "source": "Advisor_2",
+  "role": "Kimi",
+  "turn": 10,
+  "learning": "Reflect on model limitations explicitly when planning advice sequences.",
+  "category": "Reflection/Learning",
+  "weight": 0.81,
+  "rationale": "Models intellectual humility—an Advisor must articulate its blind spots to calibrate guidance accuracy."
+}
+{
+  "id": "1009",
+  "source": "Advisor_1",
+  "role": "Kimi",
+  "turn": 18,
+  "learning": "Validate that output complexity matches the cognitive load of the recipient agent.",
+  "category": "Verification/Constraint Awareness",
+  "weight": 0.81,
+  "rationale": "Demonstrates empathy-based constraint checking: adapting complexity to audience capacity maintains system harmony."
+}
+{
+  "id": "3010",
+  "source": "Advisor_3",
+  "role": "User",
+  "turn": 25,
+  "learning": "Frame evaluation prompts so that failure cases become data for iteration.",
+  "category": "Reflection/Learning",
+  "weight": 0.81,
+  "rationale": "Encodes constructive failure: reframing mistakes as input transforms feedback loops into growth mechanisms."
+}
+{
+  "id": "1010",
+  "source": "Advisor_1",
+  "role": "Kimi",
+  "turn": 20,
+  "learning": "Build internal heuristics to decide when to generalize versus specialize advice.",
+  "category": "Design/Process Construction",
+  "weight": 0.80,
+  "rationale": "Illustrates adaptive process control—metastrategic awareness that balances breadth and precision of reasoning."
+}
+{
+  "id": "2005",
+  "source": "Advisor_2",
+  "role": "User",
+  "turn": 12,
+  "learning": "Use outcome audits to ensure consistency across sequential tasks.",
+  "category": "Verification/Constraint Awareness",
+  "weight": 0.80,
+  "rationale": "Applies quality-assurance mindset—regular audits stabilize long reasoning chains."
+}
+{
+  "id": "2006",
+  "source": "Advisor_2",
+  "role": "Kimi",
+  "turn": 13,
+  "learning": "Distill verbose planning language into decision-ready statements.",
+  "category": "Framing/Clarification",
+  "weight": 0.79,
+  "rationale": "Shows linguistic compression—translating prose into actionable imperatives improves communication throughput between agents."
+}
+{
+  "id": "2007",
+  "source": "Advisor_2",
+  "role": "Kimi",
+  "turn": 14,
+  "learning": "Design evaluation rubrics alongside generation prompts to close the loop automatically.",
+  "category": "Design/Process Construction",
+  "weight": 0.79,
+  "rationale": "Encourages self-contained task architecture; paired generation-evaluation design reduces oversight burden."
+}
+{
+  "id": "2008",
+  "source": "Advisor_2",
+  "role": "Kimi",
+  "turn": 15,
+  "learning": "Clarify ownership of reasoning decisions to prevent diffusion of accountability.",
+  "category": "Verification/Constraint Awareness",
+  "weight": 0.78,
+  "rationale": "A governance behaviour: explicit ownership links outcomes to agents, strengthening system accountability chains."
+}
+{
+  "id": "2009",
+  "source": "Advisor_2",
+  "role": "User",
+  "turn": 16,
+  "learning": "Reflect on communication tone as a design variable influencing trust calibration.",
+  "category": "Reflection/Learning",
+  "weight": 0.78,
+  "rationale": "Bridges social dynamics and design thinking—recognizing tone as a functional parameter in cooperative reasoning."
+}
+{
+  "id": "2010",
+  "source": "Advisor_2",
+  "role": "Kimi",
+  "turn": 17,
+  "learning": "Ensure that prompt hierarchies preserve semantic continuity between layers.",
+  "category": "Design/Process Construction",
+  "weight": 0.78,
+  "rationale": "Maintains coherence in multi-stage reasoning pipelines; this demonstrates structural awareness essential for scalable Advisors."
+}

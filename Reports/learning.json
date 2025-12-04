@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "generated": "2025-11-13",
+    "purpose": "MetaArchitect learning objectives file aligned with master blueprint structure."
+  },
+  "learning_objectives": [
+    {
+      "objective": "Prompts function as production assets requiring lifecycle management and performance observability",
+      "source": "L1, L2"
+    },
+    {
+      "objective": "Defense-in-depth validation architecture separates user content from system instructions",
+      "source": "L1, L4"
+    },
+    {
+      "objective": "Retrieval-Augmented Generation grounds outputs by retrieving semantically relevant external knowledge",
+      "source": "L1"
+    },
+    {
+      "objective": "Continuous performance monitoring tracks semantic drift and failure patterns",
+      "source": "L1"
+    },
+    {
+      "objective": "Multi-stage alignment loops integrate human preferences and constitutional constraints",
+      "source": "L1, L3"
+    },
+    {
+      "objective": "Effective problem-solving decouples candidate generation from synthesis",
+      "source": "L2"
+    },
+    {
+      "objective": "Operational modes define distinct behaviors per task class",
+      "source": "L2"
+    },
+    {
+      "objective": "Multi-model orchestration tiers models by capability",
+      "source": "L2"
+    },
+    {
+      "objective": "Meta-reasoning synthesis merges optimal candidate elements",
+      "source": "L2"
+    },
+    {
+      "objective": "Consensus synthesis surfaces agreement while preserving minority fallbacks",
+      "source": "L2"
+    },
+    {
+      "objective": "Parallel exploration of alternatives enables comparison of methods",
+      "source": "L2"
+    },
+    {
+      "objective": "Structured output validation prevents parsing errors",
+      "source": "L2"
+    },
+    {
+      "objective": "UI affordances must match task modalities",
+      "source": "L2, L4"
+    },
+    {
+      "objective": "Verification burden is the primary constraint",
+      "source": "L3"
+    },
+    {
+      "objective": "Specialization outperforms generalization",
+      "source": "L3"
+    },
+    {
+      "objective": "Model strengths must be mapped empirically",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Generator-critic pairings exploit asymmetry in failure modes",
+      "source": "L3"
+    },
+    {
+      "objective": "Four-layer architecture: constitutional shielding, heuristic routing, critique loops, semantic knowledge bases",
+      "source": "L3"
+    },
+    {
+      "objective": "Post-generation uncertainty calibration is essential",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Failure memory prevents repeated errors",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Sustainability requires interaction thresholds and rest periods",
+      "source": "L3"
+    },
+    {
+      "objective": "Manual verification actions are stronger training signals",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Constitutional rules require periodic re-derivation",
+      "source": "L4"
+    },
+    {
+      "objective": "Context isolation prevents self-evaluation bias",
+      "source": "L4"
+    },
+    {
+      "objective": "Semantic knowledge bases store verified outputs",
+      "source": "L4"
+    },
+    {
+      "objective": "Tagging reveals actual behavioral priorities",
+      "source": "L4"
+    },
+    {
+      "objective": "Compositional prompt safety emerges from structural separation",
+      "source": "L1"
+    },
+    {
+      "objective": "Result reuse optimizes cognitive workload by avoiding redundant verification (with manual similarity assessment)",
+      "source": "L2"
+    },
+    {
+      "objective": "Verification signal amplification comes from active actions",
+      "source": "L3, L4"
+    },
+    {
+      "objective": "Cognitive overhead minimization improves verification consistency",
+      "source": "L4"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note_learning_01",
+      "scope": "learning_objectives",
+      "status": "open",
+      "summary": "Review objective categorization and potential linkage to agent-specific training phases.",
+      "created": "2025-11-13"
+    }
+  ]
+}

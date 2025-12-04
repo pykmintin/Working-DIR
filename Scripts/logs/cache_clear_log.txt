@@ -1,0 +1,14 @@
+[2025-11-01 17:37:17] Closed all Edge processes.
+[2025-11-01 17:37:17] Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\Cache
+[2025-11-01 17:37:17] Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\Code Cache
+[2025-11-01 17:37:17] Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\GPUCache
+[2025-11-01 17:37:17] Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\Service Worker
+[2025-11-01 17:37:17] Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\ShaderCache
+[2025-11-01 17:37:19] Cache clear complete. 5 folders cleared.
+[2025-11-01 17:42:26] === Edge cache clear initiated ===
+[2025-11-01 17:42:26] All Edge processes terminated.
+[2025-11-01 17:42:26] ✅ Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\Cache
+[2025-11-01 17:42:26] ✅ Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\Code Cache
+[2025-11-01 17:42:26] ✅ Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\GPUCache
+[2025-11-01 17:42:26] ✅ Cleared: C:\Users\JoshMain\AppData\Local\Microsoft\Edge\User Data\Default\Service Worker
+[2025-11-01 17:42:29] Edge cache clear finished.

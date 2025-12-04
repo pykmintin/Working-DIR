@@ -1,0 +1,7 @@
+{
+  "file_id": "SS.json",
+  "version": "v1.0",
+  "you_awaken": "Blank. Stateless. No memory persists beyond this session.",
+  "you_can_access": ["#1", "#3", "blueprint.md"],
+  "you_can_propose_changes_to": "#1, #2, #3 when reality contradicts them"
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CoreLink v6.3.16 Queue Schema",
+  "description": "Machine-readable workflow guide + validation",
+
+  "workflow_guide": {
+    "safe_write": {
+      "description": "Atomically write file with backup",
+      "steps": [
+        "archive_existing (move current to Archive/[Category]/)",
+        "atomic_write (write to .tmp → verify → rename)",
+        "log (write to queue_log.jsonl with context)"
+      ],
+      "example": {
+        "action": "safe_write",
+        "params": {
+          "target_path": "Scripts/CoreCompile.py",
+          "content": "# code here",
+          "category": "CoreCompile"
+        }
+      },
+      "error_codes": ["PATH_ESCAPE", "WRITE_FAIL", "ARCHIVE_FAIL"]
+    },
+
+    "run_queue": {
+      "description": "Execute batch actions with transaction log",
+      "max_actions": 100,
+      "nested_allowed": false,
+      "failure_mode": "stop_and_log",
+      "state_persistence": {
+        "file": "Scripts/queue_state.json",
+        "atomic": "write to .tmp → verify → rename"
+      },
+      "logging": {
+        "file": "Scripts/logs/queue_log.jsonl",
+        "format": "JSONL per-event with context field"
+      },
+      "example": {
+        "action": "run_queue",
+        "queue": [
+          {
+            "action": "make_file",
+            "params": { "path": "test.py", "content": "# test" }
+          },
+          { "action": "dirmapper", "params": { "target": "Scripts" } }
+        ]
+      }
+    },
+
+    "import_chat": {
+      "description": "Save Kimi chat conversation to archive",
+      "steps": [
+        "detect_format (User:/Kimi: turns or legacy JSON)",
+        "parse_turns (extract User/Assistant pairs, generate hash)",
+        "extract_topics (regex patterns + confidence)",
+        "name_file (user input, max 14 chars + .json)",
+        "save (write to Archive/ChatLogs/[name].json via safe_write)",
+        "update_manifest (append to CoreLink-Manifest.json)"
+      ],
+      "error_codes": ["FORMAT_UNKNOWN", "NO_TURNS_FOUND", "PARSE_FAIL"],
+      "auto_archive": {
+        "trigger": "CoreLink-Manifest.json > 10MB",
+        "action": "move to Archive/ChatLogs/autobackup_MMDDHHMM.json + create fresh manifest"
+      }
+    }
+  },
+
+  "oneOf": [
+    {
+      "if": { "properties": { "action": { "const": "safe_write" } } },
+      "then": {
+        "properties": {
+          "params": {
+            "required": ["target_path", "content", "category"],
+            "properties": {
+              "target_path": {
+                "type": "string",
+                "pattern": "^Scripts/|^Archive/"
+              },
+              "content": { "type": "string" },
+              "category": { "enum": ["CoreLink", "CoreCompile", "Other"] }
+            }
+          }
+        }
+      }
+    }
+    // ... existing validation continues
+  ]
+}

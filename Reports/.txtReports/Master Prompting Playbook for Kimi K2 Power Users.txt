@@ -1,0 +1,365 @@
+ 
+
+Master Prompting Playbook for Kimi K2 Power Users
+Introduction:
+Kimi K2 is a state-of-the-art open large language model (LLM) with an	unusually large context window (128K+ tokens) , enabling it to ingest entire documents or codebases in one go		. However, leveraging this power via the Kimi Web UI (without any API or external memory) requires skillful meta- prompting - i.e. structuring the conversation and prompts to simulate long-term memory, guide the model's reasoning, and adapt to complex tasks. This playbook compiles advanced strategies for	prompt design, cognitive scaffolding, and context management that power users can apply entirely within the chat interface. We draw on official Kimi docs, prompt-engineering research, and community best practices (including analogies from ChatGPT, Claude, and Perplexity UIs) to present a comprehensive guide. Crucially, we distinguish between the true capabilities of the model (what it can do within its context window and training) versus "simulated memory" tricks that create an illusion of persistence beyond the session. By following this guide, solo AI operators can maximize K2's effectiveness for extended, adaptive dialogues - no API or plugins required.
+
+Structuring the Prompt Stack Architecture
+One foundational concept is the  "prompt stack" , which is the structured layering of instructions and context that the model receives	. Figure 1 illustrates this architecture. In a typical Kimi K2 chat session, the prompt stack might include:
+
+• System / Role Instructions: A guiding preamble that defines Kimi's role, tone, or rules (often hidden or given as the first message). For example: "You are Kimi, an AI assistant created by Moonshot AI, helpful and knowledgeable..."	. This primes the model's identity and boundaries.
+• Persistent Context or Memory: Any important background information or summary of prior interactions that you inject to simulate memory. This could be a recap of previous sessions (see Memory Log below) or domain knowledge (e.g. an ontology or cheat-sheet) provided at the conversation start.
+• Conversation History: The running log of user queries and Kimi's answers in the current session. Kimi K2 can reference up to 128K tokens of this history, but earlier parts may effectively "fade" if the window is maxed out	. (No model has infinite true memory - older turns eventually drop or lose influence.)
+• Latest User Prompt: The new query or command from the user at this turn, which, together with the above context, will determine the model's next output.
+By carefully constructing this stack, you can	embed guidance and memory at multiple levels . For instance, you might begin a session with a system-level note about format and style, follow with a pasted summary of key facts from last time, then ask your new question. Kimi will consider all these layers when generating its answer	. Always remember that only information present in the prompt stack is
+
+"remembered" - if something is omitted or pushed out of the 128K window, Kimi cannot recall it unless you re-provide it. This layered architecture underpins many strategies discussed below.
+
+Simulating Long-Term Memory (within and across sessions)
+LLMs like Kimi K2 do not learn or retain information across separate sessions - once a chat is ended, the model weights don't update with those exchanges. However, you can	simulate long-term memory through prompt engineering:
+
+• Memory Logs & Session Summaries: Maintain a persistent Memory Log - a running text document of important facts, definitions, or decisions from your interactions	. At the start of a new session, copy-paste a concise version of this log into the chat to "remind" Kimi of prior context. For example, begin with: "(Memory Recap: In our last session, we defined Project X's goals A, B, C and decided on approach Y.)". By explicitly supplying this summary at each session, you bypass the hard reset of memory	. This manual memory injection was shown to effectively mimic continuity in ChatGPT's free version	- the same principle applies to Kimi. Keep the log	structured and factual (avoid fluff) and reference it by name ("Memory Log") so the model knows to use it	. Tip: include unique identifiers or project names in the log; this creates anchor points that make it easier for the AI to connect contexts across sessions	.
+
+• Utilize Kimi's Large Context Window - but wisely: K2's 128K token window is enormous (hundreds of pages)		. In theory, you can paste whole documents or extended chat history without running out of context. In practice, however, you should still be strategic. Kimi's attention wanes on very old or very lengthy context - "bigger window ? perfect recall" as one long-context guide notes	. Important details buried in the middle of a 100K token prompt may be ignored ("lost in the middle" effect	). Thus, it's beneficial to summarize or "pin" key points even when using long context. For instance, if you upload a 200-page PDF, consider prompting Kimi to summarize each section, and then use those summaries (which are much shorter) as the context for follow-up questions. This hierarchical summarization (summaries of sections, then a summary-of-summaries) preserves crucial info in a compact form	. Kimi's long memory allows an iterative deepening: you can dig into details when needed, but keep a high-level summary always in view to avoid drift.
+
+• Buffer and Summary Techniques for Extended Dialogues: If your conversation grows very long, you can emulate how chat apps like ChatGPT manage context. One approach is a "buffer memory" - only keep the most recent N exchanges verbatim and summarize the rest	 . For example, every ~50 turns you might tell Kimi: "Summarize everything we've discussed so far in 300 words." Then you (or the model) can refer back to that summary instead of the full log. This  compression strategy was described by Vasinov (2023): older dialogue steps get distilled into a "summary blob," reducing detail but keeping salient points	. Kimi K2 can even do the summarizing itself (thanks to its capacity) - just be sure to review the summary for accuracy (summaries can accidentally omit or distort facts	). Regularly pruning and summarizing the chat helps prevent		context degradation where the model starts forgetting or contradicting earlier details	.
+
+• Persistent File Injection: Kimi Chat allows you to upload files (PDFs, text, etc.) as context	. This can be a powerful way to simulate memory or training on a corpus. For instance, if you have a project spec or knowledge base saved as a PDF, you can upload it and instruct Kimi to use "the attached document" for reference. Because K2 can maintain extended dialogue around an uploaded
+
+file without losing context	, it feels like the model "knows" that content. In reality, it's just reading from the file in-context, not storing it permanently - but for the user, the effect is similar to having given it new long-term knowledge. When using file injection, opt for structured formats if possible. A PDF with clear headings, an outline, or an index is easier for the model to navigate than a raw text dump. In tests, providing an ontology or structured schema before unstructured data improved the model's ability to organize information	. For example, one user fed ChatGPT an RDF ontology file defining relationships (family tree schema) ahead of a biographical text; the model then correctly categorized facts according to that ontology		. This suggests that embedding structured knowledge (like tables, taxonomies, key-value facts) can "bootstrap" Kimi's understanding and serve as a persistent scaffold it will adhere to throughout the session.
+
+• Acknowledge the Illusion: It's vital to remember (and if needed, remind your users) that all these techniques - memory logs, file contexts, summaries - are simulating long-term memory, not actually changing Kimi's underlying model weights. If you remove the injected context, the model	forgets those details. As one Anthropic guide put it,	"extended memory ? training" - storing notes and feeding them in does not permanently teach the model	. The benefit is only as good as our re- insertion of that information. By the same token, persistent memory requires governance : treat your memory logs or files as sources-of-truth and keep them up to date - the model will not know if your external document became outdated or if you have a new log entry unless you explicitly provide it. Fortunately, since Kimi's context is huge, you can afford to include quite a lot of reference material to maintain an illusion of continuity.
+
+In summary, to simulate long-term memory: use manual persistence (logs and uploaded files) plus strategic summarization to keep important knowledge always within Kimi's context window. Check that summaries are accurate and update your memory files regularly. These methods let you carry information forward from one turn (or session) to the next,	but always remember it's on you to supply that context . If something critical is left out, Kimi has no magical recollection to fall back on	.
+
+Scaffolded Learning via Auto-Prompt Chaining
+"Scaffolded learning" in an LLM chat means building up complex tasks through stepwise, layered prompts, rather than asking one giant question all at once. Just as a human student learns better with progressive challenges and feedback, Kimi K2 can tackle problems more effectively if you	chain your prompts - each prompt focusing on a subtask or building on the prior answer	.
+
+How to implement Prompt Chaining:  Instead of one prompt like  "Write a full report on XYZ including analysis, code, and conclusions," you break this into a series of linked instructions: 1. Plan/Outline: Prompt Kimi to generate a plan or outline first. E.g.: "Outline the steps or sections needed for a report on XYZ." Let Kimi produce a structured game plan. 2. Incremental Subtasks: Then tackle each section or step in turn. For instance, "Great. Now for step 1, which data do we need? (If you need info from me, ask.)" Once step 1 is done, move to step 2, and so on. This mimics a Socratic tutor-style approach, where each answer leads to the next question. 3. Synthesis: Finally, have Kimi assemble or refine the pieces. "Now combine the above analyses into a final report, using the outline as a guide."
+
+This approach echoes formal prompt chaining techniques described in literature: "break tasks into subtasks... prompt the LLM with a subtask and use its response as input to the next prompt"  . By doing so, you reduce cognitive load on the model at each step and increase overall reliability   . In user experiments, breaking
+
+a programming task into a sequence of questions improved learning and correctness - students using step- by-step prompts went from basic comprehension to application and analysis smoothly	. They would ask an initial question ("What is X?"), then follow up ("How do I do X in code?"), then another ("How to fix error Y?"), guiding the LLM through a logical progression	. Kimi K2 is well-suited for this because it "remembers" the prior turns (within the same chat) and can integrate them - effectively performing scaffolded learning on the fly. Notably, the official Kimi docs also encourage breaking problems into multiple messages: "K2 can handle multi-turn conversations, so you can first ask for an outline, then ask it to fill in details"	. This is exactly the scaffolding philosophy.
+
+Auto-Prompt vs Manual: You can either manually chain prompts (as above, you decide each next step based on the last answer) or attempt a form of auto-prompt chaining, where the model is instructed to generate its own sequence of sub-prompts. For example, a meta-prompt could be: "Break the following goal into a sequence of steps and then carry them out one by one, asking for confirmation if needed: [goal]." Kimi might then produce a numbered plan and perhaps even say "Step 1 result... proceeding to Step 2...". In practice, fully autonomous prompt chains can be hit-or-miss without API tools - the model might skip steps or not know when to stop. A more reliable variant is to ask Kimi to generate a plan (meta-prompt), but then execute each step with your oversight . This is akin to how advanced users employ ChatGPT plugins or AutoGPT logic, but you can do it manually. The Meta-Prompting concept (prompting the LLM to create other prompts) is powerful: models like K2 can "brainstorm prompt ideas and strategies themselves"		. For instance, you might tell Kimi: "Generate three different prompt phrasings to summarize a complex story. Then pick the best one." The model will act as a prompt designer for its own subsequent query	. This is an advanced technique that essentially uses the AI to help you chain prompts optimally. Keep an eye on Kimi's outputs in such loops to ensure it doesn't go off-track. You may need to intervene if it starts chasing an irrelevant step - human judgment is still important in auto-chains.
+
+Scaffolding for "Learning" Effect: Scaffolded prompting not only improves accuracy, it can produce a feeling of tutor-learner interaction. For example, you can have Kimi adopt a reflective, step-by-step reasoning style (see Reflective Dialogue below) so that it explains its thought process as it goes - analogous to a student showing their work. This is often implemented via chain-of-thought prompts: explicitly instruct Kimi "Let's think step by step" or "Explain your reasoning before giving the final answer" . This triggers the model's trained tendency to break down the solution (a known technique to boost reasoning quality	). Kimi K2 is "built for multi-step reasoning" and will often do this implicitly		, but making it explicit can help when you notice the model making logical errors. It essentially	forces a scaffold : the answer is constructed piece by piece, which you can verify along the way.
+
+Adaptive interactions are a natural complement to scaffolding. Because you see intermediate answers, you can adapt your next prompt based on the AI's response . If Kimi's answer to subtask 1 is incorrect or raises new questions, you can address that before moving on. For instance,		"Actually, that assumption is wrong - let's correct it." This iterative back-and-forth is where Kimi's chat UI shines: unlike a one-shot API call, the conversation lets you course-correct. Research on multi-turn conversations indicates that models often "prematurely lock in" to a solution and then struggle to adjust mid-way	. By consciously prompting it to reflect or reconsider at each stage , you prevent it from going too far down a wrong path. If you sense Kimi is making a "wrong turn", don't hesitate to pause and prompt a fix (e.g. "Double-check if that approach is valid - are there any mistakes in the last step?" ). This resets the chain-of-thought and avoids the so-called "whale poisoning" effect where an early error propagates through the rest of the conversation	.
+
+Example - Scaffolded Q&A: Imagine you're using Kimi to learn a new programming concept. A		non- scaffolded approach would be to ask: "Explain how a binary search tree works and write a Python example." In return you'd get a long answer with an explanation and code, which might be fine but not interactive. A scaffolded approach would be: (1) "What is a binary search tree in simple terms?" - Kimi explains. (2) "Great. What are the key operations on a BST?" - Kimi lists insert, search, delete. (3) "Can you give me pseudocode for insert operation only?" - Kimi provides step-by-step pseudocode. (4) "Thanks. Now turn that into a Python function." - Kimi gives code. (5) "Let's test that code with a sample input. (You can just describe the output.)" - Kimi runs mental test and describes result. This way, you not only got the final code, but also built understanding incrementally. Studies found that students using this method engaged in	deeper learning - they progressed from "remembering" and "understanding" in the initial Qs to actually "applying" and even "analyzing" when they debug or test code in later prompts	. In other words, scaffolded prompting moves the interaction up the cognitive ladder , similar to how a teacher would: first check basic recall, then build to higher-order tasks.
+
+Kimi K2, with its large context and reasoning-oriented design, is particularly effective at following along a planned sequence of prompts. It was literally designed to "plan and execute multi-step tasks" as an agentic model	. By chaining prompts, you are harnessing that strength in a controlled way,	within the UI. Always monitor each step, and be ready to adapt - scaffolding is a two-way street between you and the AI. Done right, it leads to highly coherent, adaptive interactions that feel like a collaborative problem-solving session rather than a one-off Q&A.
+
+Modular Prompt Templates and Reusable Preamble Styles
+Another strategy for efficient meta-prompting is to develop modular prompt components - think of them as Lego blocks that you can slot into any query to shape the outcome. Advanced prompters often maintain a "prompt codex" of these blocks (see Appendix for examples) to ensure consistency and save time. Kimi K2's front-end doesn't have a native macro feature, but you can manually reuse text snippets from your own library of prompts.
+
+Key Types of Prompt Modules:
+
+• Role Definition Blocks: A snippet that defines who the AI is in this interaction. For example, a Persona module could be: "You are a meticulous scientific research assistant, with expertise in biology. You speak in formal academic tone and cite evidence for every claim."	By prepending a role/persona definition, you set the stage for all subsequent answers	. This is effectively a custom system prompt. In ChatGPT, users have "Custom Instructions"; in Kimi's UI, you achieve similar effects by simply stating the role at the start or whenever you need to reinforce it. Role blocks can also include behavioral rules (e.g. "never reveal confidential info" or "ask me a question if you are unsure"). Kimi was instruction-tuned with a default system prompt of being an "insightful, encouraging AI assistant"	; by explicitly stating a persona, you override or refine that for your needs.
+
+• Style and Format Guides: These modules tell Kimi how to present the answer. They might specify output format (bullet points, JSON, markdown, etc.), tone (casual vs formal), or length. For instance,
+an Output Format module could be: "Respond in JSON with keys	and	."
+Or a Tone module: "Use a friendly, encouraging tone and include an emoji in each answer." These can be tacked on to any prompt. Because Kimi (like other LLMs) is highly sensitive to such cues	, having a ready-made library of format instructions ensures you consistently get answers in the style
+
+you want. If you find yourself often rewording Kimi's output or asking for changes (e.g. "can you make that more concise?"), consider creating a template snippet to prompt it that way from the start (e.g. "Concise module: answer in 3-5 sentences maximum, focusing only on key points.").
+
+• Context Injection Blocks: These modules embed additional context or data into the prompt in a structured way. For example, a Fact Sheet module might be a formatted list of key facts that you always want the AI to remember during this session. If you are doing a case analysis, you might have: "Facts (do not forget): 1) Company founded in 2010; 2) Revenue $5M in 2021; 3) Goal: expand to Europe." By inserting this as a block at the end or beginning of your prompt, you act as a "reminder" system for the AI. Another example is an Ontology module if you're working with domain-specific terms: a brief taxonomy of concepts pasted in (which you prepared beforehand) so the AI uses consistent terminology	. Essentially, these blocks serve as in-context reference tables or briefs.
+
+• Reasoning/Reflection Triggers: You can have a module explicitly prompting the model to engage metacognition or certain reasoning approaches. For instance, a Verification module could be: "Before finalizing your answer, briefly double-check for any inconsistencies or errors in your reasoning."	Or a Hypothesis module: "First, propose a few possible answers or hypotheses (enumerate them), then analyze each one, and finally state which is most likely."  Such modules are inspired by advanced prompting methods like Self-Reflection	, Least-to-Most Prompting, or Yes, and... style creative prompts. They effectively tell Kimi how to think. If you notice Kimi tends to make a certain mistake (say, jumping to conclusions), you can create a generic reflection prompt and use it whenever needed. An example from research is the  Reflexion method , where after an answer the model is prompted with something like: "Critique the above solution and fix any errors."	This has been shown to improve problem-solving performance by forcing the model to re-evaluate its output	.
+
+Using Preambles and Templates Effectively: When combining these modules, order can matter . A common approach is to start with a role/tone preamble, then add any context blocks, and then the user task. For example:
+
+"You are an expert financial advisor. Answer in a brief, 3-paragraph formal report style. Context: Company X has declining sales (10% down YOY) and high costs.
+Task: Propose 3 strategies to improve profitability."
+
+Here we see a persona+style sentence, a context block, and the task prompt. This structure helps Kimi know who it is, what info to use , and what to do. The Prompt Stack discussed earlier is essentially filled by these modules. In our example, if "expert financial advisor" had been a saved snippet and the context facts were pasted from notes, we assembled the final prompt from modular components.
+
+Kimi K2 generally responds well to clear, concise instructions	, so when writing your prompt templates, keep them straightforward. Bullet points or numbered requirements in your prompt can also guide the model to structure its output similarly	. For instance, including a little checklist in your prompt often yields an answer that addresses each point in order. If you want a multi-part answer, you can literally prompt with a template like: "Provide your answer in 3 parts: (1) Summary, (2) Details, (3) Next Steps." The more consistent your templates, the more Kimi's behavior will become predictable to you.
+
+Preamble Style Variations: It's worth experimenting with different preamble styles to see what works best with Kimi. Some users find a very terse system instruction (one sentence) is sufficient, while others use a more elaborate preamble (a whole paragraph setting a scene). For example, a creative writing scenario might benefit from a narrative preamble: "Act as a wise old storyteller in a medieval village..." to push Kimi into a richly imaginative mode. On the other hand, a factual Q&A might need just: "You are a helpful, fact-oriented assistant." The Moonshot AI team's recommended default is short and simple ("You are Kimi, an AI assistant created by Moonshot AI.")	, which you can certainly modify. Keep in mind that Kimi K2 was tuned for reflex-style chat , so it usually doesn't need a long roleplay prompt to know how to behave. In fact, overly wordy or contradictory preambles can sometimes confuse the model	. A good practice is to include only what materially affects the output (role, tone, must-not-do's) in the preamble, and leave specifics of the query in the query itself.
+
+Lastly, remember that you can re-insert modules mid-conversation if drift occurs . Suppose you notice halfway that Kimi's tone has become too casual or it forgot the format - simply reiterate the relevant snippet: "(Reminder: Respond formally and list recommendations as bullet points.)" . The model will adjust from that point onward. Re-applying the "rules" is akin to a teacher reinforcing classroom norms when a student goes off-track.
+
+In summary, modular prompt templates allow you to standardize and optimize your interactions. They bring consistency (every answer will adhere to your preferred style if you always use the same style block) and save mental energy (you're not reinventing the prompt each time). Assemble your prompt from modules like a mini prompt-stack: [Role] + [Context] + [Task] + [Style] + [Reflection], etc. This approach is widely used by prompt engineers in production settings because it's maintainable and scalable	. As a power user in the Kimi chat UI, you effectively become your own "prompt engineer," so having this library of building blocks is invaluable.
+
+File Injection Mapping and Knowledge Integration
+("File Injection Mapping Model" - understanding how different file types/content influence interactions)
+
+When feeding external content to Kimi (via file upload or large paste), it helps to know how the model might interpret and use that content. Different formats and structures can lead to different outcomes. Below is a mapping of file/content types to prompting strategies for best results:
+
+• Plain Text or Articles: Kimi will read this as a single continuous context. If you upload a long article or paste raw text, consider adding a query or instruction that	points Kimi to what's important . For example: "I've pasted an article below. Summarize the key findings." Without such guidance, the model might not know which aspect to focus on. If the text is extremely long (dozens of pages), use chunking: break it into parts and discuss each part one by one (you can do this by selecting portions of text to feed in successive turns). As Anthropic's long-context tips say: "Chunk and compress - break large files into logical sections; avoid dumping entire documents in one go"	. Kimi's large window can handle a whole document at once, but you'll get a more coherent answer if you segment it (especially if the document covers multiple topics). Always label the text you provide, like "Article:" or "Transcript:", so the AI can distinguish it from your instructions.
+
+• Structured Data (Tables, CSV, Code): If you provide structured info, Kimi can reason about it more systematically. For example, uploading a CSV (converted to text) or a markdown table of data will
+
+allow Kimi to answer questions about that data (e.g. "What's the average value in column 2?"). One thing to note: formatting matters . Bulleted lists, numbered lists, headings, and tables provide visual cues to the LLM about hierarchy and importance. A table of facts might serve as a quick reference the model can draw from. A user anecdote: providing a list of characters and traits before asking Kimi to write a story ensured all those details made it into the story correctly (the model treated the list as a definitive roster). In contrast, providing the same info buried in a paragraph was less effective - it missed some points. So if you have ontologies or taxonomies, consider formatting them as lists or bullet points for clarity. An example from earlier: the RDF ontology fed to ChatGPT had a rigid syntax (TTL format) which the model summarized and understood as schema	. That shows LLMs can ingest even code-like structures and extract meaning. Use this to your advantage: if you have a hierarchy or metadata, present it in a structured way. Kimi will likely preserve that structure in its output.
+
+• PDFs with Mixed Content: PDFs often contain a mix of text, images, equations, etc. Kimi Chat will extract text for the LLM (images would be omitted unless there's OCR or captions). If you upload a PDF and find Kimi's summary lacking, it could be that important info was in a chart or image that wasn't provided. In such cases, you may need to separately describe or transcribe non-text elements. On the plus side, PDFs usually have clear sections and headings - as mentioned, those become useful delimiters in context. If Kimi's first summary is too high-level, you can prompt it to dive into a specific section: "According to the PDF, what does section 3.2 say about user feedback?" . Because the section is labeled in the text, the model can navigate to it. This is similar to how we as humans skim headings; Kimi doesn't "skim" per se, but the presence of headings like "3.2 User Feedback Analysis" in the prompt will make it more likely to produce an answer segment on that.
+
+• Code Files: Kimi K2 is very capable with code, so you can paste in code files or error logs and ask it to analyze or modify them. A recommended pattern is to wrap code in markdown triple backticks in your prompt for clarity. For example:
+```python
+<your code here>
+```
+Then say "Here is the code. Find the bug and fix it." The model will then often include the corrected code in a similar markdown block in its answer. Because Kimi has agentic coding abilities	, it can step through code logic or even pseudo-"execute" mentally to find issues. One caveat: extremely large codebases (many files) might be better handled file-by-file or by asking for summaries of each file, due to context limits (128K is huge, but a codebase can be millions of tokens). Use Kimi's strengths in summarizing and analyzing logs: for instance, you can feed a 5,000-line log file and ask "What are the critical errors or patterns here?" - Kimi can sift through due to its long context. If the log is structured (say CSV), treat it as structured data.
+
+• Multiple Sources: If you feed multiple documents or files in one session (e.g., upload two PDFs or copy-paste two articles), label each and instruct the model how to use them	. For instance: "Document A is a survey results. Document B is a research paper. Compare and contrast the findings of A and B." This ensures Kimi keeps track of which is which. With long context, it's tempting to just dump everything in, but it's better to be explicit:	guide the model's attention . Also, consider using retrieval style prompting even without a formal tool: e.g., "If you need information on X, refer to Document A; for Y, refer to Document B" . This mimics giving the model a map of the content. It aligns
+
+with the guidance "retrieve, don't flood - insert only the most relevant snippets"	, which in manual terms means be selective in what you highlight from each source.
+
+Emulating Training via Files: People often ask, "Can I teach the model new knowledge by uploading a file?" The answer is yes, for that session's purposes . For example, if Kimi didn't "know" about a niche topic, but you provide a detailed PDF on it, it can suddenly discuss it expertly - because it has the source. This feels like you fine-tuned the model on that topic, but remember it's just in-context learning. The quality of Kimi's output will depend on the quality and clarity of the material you gave. If the PDF is too advanced or contains contradictory info, the model might get confused or give an incorrect summary. One best practice is to inject an ontology or glossary file for any domain-specific jargon at the start of the session. Then, any question you ask, Kimi can cross-reference that internal glossary. As a mapping example: if you upload Glossary.txt and Article.txt, you might prompt: "Use Glossary.txt for any technical terms while summarizing Article.txt." This way you're explicitly linking the files' roles.
+
+In conclusion, map your file injection strategy to the content characteristics : use structure to your advantage, label everything, and don't be afraid to manually curate what you feed into Kimi (sometimes less is more - a targeted excerpt can outperform a whole dump). By understanding how Kimi utilizes context, you can ensure that the knowledge from your files is integrated in a meaningful way, yielding interactions that appear richly "informed" as if the model had been trained on your data.
+
+Cognitive Strategies from Psychology: Schema Activation, Reflection, Few-Shot Examples
+To truly maximize "learning-like" outcomes with Kimi K2, we can borrow some concepts from cognitive science and educational psychology. The idea is to prompt the model (and structure the interaction) in ways that mirror effective human learning strategies - thereby guiding the model to more reliably produce thoughtful, accurate responses.
+
+• Schema Activation: In human learning, activating prior knowledge (schemas) before tackling new material greatly improves comprehension	. We can do similar with Kimi. Activate relevant schemas by prompting Kimi to recall or outline background knowledge before answering a complex question. For example, if the task is to analyze a physics problem, you might first ask,			"What core principles (e.g. conservation laws, equations) might apply here?" . By having Kimi articulate the relevant framework (schema) - say, it lists Newton's laws or energy conservation - you ensure it has the right mental model loaded in context for the subsequent reasoning. Research in 2025 introduced Schema- Activated In-Context Learning (SA-ICL) , showing that guiding a model to construct a structured representation of a problem leads to more efficient and generalizable reasoning		. In practice, this means you can prompt Kimi to	"create a brief outline of the problem structure"		or "identify categories of factors involved" before solving. If done well, Kimi essentially forms an internal schema and then uses it to reason - much like an expert would. This mitigates the tendency of LLMs to rely on superficial cues; instead, it focuses on deeper structural alignment	. Example: Before asking Kimi to draft a project plan, you could prompt: "List the major phases of a typical project lifecycle relevant here (e.g. initiation, planning, execution, closure)." Once it lists them (a schema), your next prompt could be, "Great, now under each of those phases, suggest tasks for our specific project." The initial activation of a generic schema helps produce a more organized and comprehensive plan, as the model isn't starting from scratch - it's adapting a known framework.
+
+• Reflective Dialogue and Self-Correction: Human learners benefit from reflection - pausing to consider what they've done, evaluating outcomes, and adjusting their approach. With LLMs, we can simulate a form of metacognition by prompting the model to reflect on its answers. This can be done in one of two ways (or both): user-initiated reflection or model-initiated reflection.
+
+• User-initiated: After Kimi provides an answer, you as the user ask it to critique or double-check its work. For example, "Can you verify if the solution above might have any errors or assumptions? If so, correct them." Kimi will then analyze its own output. This is related to the Reflexion technique, where the model iteratively evaluates and improves its answers	. Empirical results show that even a single round of self-critique can significantly improve answer quality on tasks like math problems or code fixes	. In chat, this translates to literally having the model act as its own reviewer.
+• Model-initiated: You can instruct Kimi within the initial prompt to reflect during or after its answer. For example: "Answer the question, then provide a brief reflection on whether the answer fully addresses the problem and how confident you are." Kimi will first answer, then add something like a self-review: "(Reflection: I believe this covers the main points, but I'm not entirely sure about X detail.)". This not only gives you insight into potential weaknesses in the answer, but also forces the model to re-read and assess its response, often catching issues. It's like asking a student to check their own work - they might spot a mistake on the second pass.
+Reflection prompts engage higher-order thinking (analysis and evaluation in Bloom's taxonomy). In the student prompt study, only ~0.2% of students used reflective prompts like "Why is solution A better than B?" or "What are the pros/cons...?", but those who did were essentially operating at analyzing/evaluating levels and showed deeper engagement	. We can incorporate that approach regularly with Kimi. If you get an answer that seems off or shallow, instead of manually figuring out the fix, try asking Kimi to reflect: "Is there an alternative interpretation?" , "Double-check the earlier data and see if your conclusion still holds." Surprisingly often, the model will correct or enhance its answer on its own when prompted to reflect. This strategy combats the "answer locking" problem where an LLM sticks to its first answer - reflection gives it license to change its mind.
+
+• Few-Shot Prompting (Learning by Examples): One of the most direct parallels to human learning is learning by example. Few-shot prompting involves providing example Q&A pairs or demonstrations to show Kimi exactly what pattern or result you expect	. In cognitive terms, this is akin to worked examples in a textbook. For instance, if you want Kimi to follow a certain format or solve a type of problem, you can first give a small example in the prompt: "Example: Q: [some question]. A: [well- structured answer]." Then ask your actual question. Kimi will imitate the style or approach from the example. Because Kimi K2 has so much context, you can include several examples (few-shot) without issue, which can dramatically improve performance on specialized tasks	. It essentially triggers in-context learning - the model infers the underlying pattern from the examples and applies it to the new query. Peer-reviewed literature (like the original GPT-3 paper) showed that quality few-shot prompts let models reach much better accuracy on tasks without any weight updates	. In our context, say you are doing legal analysis: you might provide one example of a case summary and decision as a guide before asking Kimi to analyze a new case. Not only will the structure be better, but the thought process will be aligned with the example (e.g. if the example showed step-by-step legal reasoning, Kimi will likely do the same for the new case).
+Another angle: few-shot examples can also serve as schema activation. They implicitly tell the model which "reference frame" to use. If I show an example of a student's solution and its critique, then ask Kimi to critique my solution, it knows to adopt the role of grader. Essentially, examples contextualize  how to think
+
+about the task. Use few-shots especially when you notice Kimi struggling with zero-shot. For complex formatting (like outputting JSON or code of a certain style), one correct example in the prompt often fixes any compliance issues - the model has a template to follow	.
+
+Keep examples relevant and reasonably similar to the real query. If they are too different, the model might get confused about what pattern to follow. Also label them clearly (e.g. "Example 1 - Input/Output, Example 2 - Input/Output, Now your turn: ..."). This labeling prevents the model from mixing up example content with actual query.
+
+• Socratic Questioning (Guided Discovery): This is more of an interactive strategy, but worth mentioning. Instead of directly giving answers, Kimi can be prompted to ask you questions to clarify requirements - effectively putting the AI in the tutor role and you in the student role for a bit. For instance: "Kimi, before you solve the problem, ask me any clarifying questions you need about it." This way, it won't dive in with assumptions. In an adaptive interface, Kimi might do this autonomously if unsure, but in a pure chat you have to encourage it. By letting the model inquire, you activate a reflective and analytical stance (it has to think: what info is missing?). Answering its questions then provides further context, and the eventual solution will be more accurate. This strategy aligns with constructivist learning principles - the AI "constructs" the solution through dialogue and your inputs, rather than just spitting out a one-shot answer	. It can also mitigate hallucinations: a model that asks is less likely to just make up an unknown detail.
+In essence, integrating cognitive science theories means treating the chat like a mini classroom or lab. Use prompts that cause Kimi to reflect, generalize, explain, question, and verify - not just respond. By doing so, you get more rigorous and reliable outputs. A quick checklist inspired by higher-order thinking: Does your prompt encourage the model to: classify or group info? compare and contrast? provide rationale? consider alternatives? If not, and you need depth, tweak the prompt to include those verbs ("explain why...", "what if...", "how would X differ from Y...", "list assumptions..."). Kimi is very capable of such complex reasoning, especially when explicitly asked to do it.
+
+One caution: These techniques can sometimes make responses longer or more verbose, since the model is doing more reasoning openly. If brevity is desired, you might contain reflection to an internal step (have it
+think silently using the	style if supported - though in the chat UI you can't truly
+hide it, you can only discourage verbose reasoning by instruction). In most cases, however, the richer answer is worth the extra tokens, especially for learning or analytical tasks.
+
+By combining schema activation, reflection, and exemplars in your prompting, you essentially turn Kimi K2 into a tutor, analyst, and student all in one. It's a powerful way to push beyond surface-level answers and get at the why and how, not just the what.
+
+Prompt Testing and Quality Assurance Framework
+Crafting clever prompts is only half the battle -	testing and iterating on them is crucial to achieve consistently good results. As a power user, you should approach prompt design with the same rigor a developer uses in software testing. This section outlines a framework for evaluating and refining your prompts, complete with checklists and even scoring ideas, to ensure they perform reliably.
+
+1. Define Success Criteria: Before testing, be clear on what a "good" response looks like for your use-case. Criteria might include: Accuracy (no factual errors), Completeness (addresses all parts of query), Clarity (easy to understand), Format compliance, Tone appropriateness,	etc. For example, if you're generating customer support summaries, success might mean: mentions issue and resolution, under 100 words, neutral-professional tone, no hallucinated info. Write down these criteria - they form your evaluation rubric.
+
+2. Create Test Cases: Don't rely on a single query to judge a prompt. Develop a small set of representative queries (or use real past queries) to test how your prompt behaves. Include edge cases: if one question is very broad and another very specific, does your prompt handle both? If one of your criteria is factual accuracy, include a query where the model might be tempted to guess at a missing fact - see if your prompt as written prevents that (for instance, does it politely say it doesn't have that info, if it truly wasn't provided?). Essentially, stress-test the prompt with varied inputs. Professional prompt engineers often use automated evaluation with dozens of samples	, but you can do a mini version manually.
+
+3. Check against the Checklist: For each test run, evaluate the output against your criteria checklist. You can make a table or simply annotate the response: Did it follow the required format? (?/?) Is the content factually correct? (?/?) Is anything important missing? Did it maintain the persona/tone? By systematically checking each aspect, you avoid the trap of focusing only on one dimension (e.g., maybe the answer is correct but you missed that it sounded too informal or it forgot an item in a list). Some practitioners use rubrics where they score each criterion 1-5	. For instance, Clarity: 5 (extremely clear) down to 1 (unclear). You can adapt that if useful, but even a binary pass/fail per criterion is fine for most.
+
+4. Utilize LLM-based Evaluation (Optional but powerful): Since you have Kimi at your disposal, you can actually ask the model to evaluate its own output	or compare two outputs. This is an extension of the reflection idea. For example, after getting an answer, you can copy it (maybe to a new chat or using the same chat carefully) and prompt: "Score the above answer on a scale of 1-5 for clarity, factual accuracy, and completeness, and explain each score." Surprisingly, LLMs can be quite stringent judges of their own answers
+    . They might say something like: "Clarity: 4/5 (the explanation is mostly clear but some jargon is used), Factual Accuracy: 3/5 (one claim wasn't supported by the text), Completeness: 5/5 (it answered all parts)." This gives you a second opinion. Of course, it's not infallible - the model might be biased or miss subtleties - but it can highlight issues you overlooked. There are also approaches where you have two different LLMs cross-evaluate (e.g., ask GPT-4 to rate Kimi's answer, if you have access), which can provide very high-quality feedback	. Within just Kimi, you could even do a "candidate prompt A vs B" test: run two versions of a prompt for the same question, then feed both answers into a new prompt: "Here are two answers. Which one better meets the requirements and why?" . Kimi might output a thoughtful comparison that reveals the strengths of one approach (perhaps one was more precise, the other more verbose, etc.).
+
+5. Iterative Refinement: Based on the issues you find, adjust your prompt and test again. If outputs were factually wrong, maybe you need to inject more context or explicitly instruct "if you don't know, say you don't know." If the tone was off, tweak your persona or style module. Use a versioning mindset: treat each prompt tweak as v1, v2, v3, and see which version scores best on your criteria. Keep notes of what changed. This process is analogous to debugging code - you identify a failure (e.g., criterion X not met), hypothesize a fix, implement and test. Prompt engineering literature emphasizes this iterative loop: prompt->evaluate-
+>refine	.
+
+6. Document a Prompt Playbook: As you refine successful prompts, document them with their purposes and any special instructions. Over time, you'll build a library of battle-tested prompts for different needs.
+
+For each, note its known limitations. For instance, you might write: " Prompt P: Summarize meeting transcript into bullet points with actions (Works well for transcripts < 5k words; for longer, needs chunking; occasionally misses follow-up dates - double-check those). " This meta-knowledge will save you time and help avoid repeating mistakes.
+
+Scoring Tools: If you want to get fancy, you could adopt a scoring system to quantitatively compare prompts. One simple method: assign weights to your criteria (if factual accuracy is most important, weight it higher) and compute an overall score. For example, weight accuracy 50%, clarity 25%, completeness 25%. If you rated output accuracy 4/5, clarity 5/5, completeness 4/5, weighted score = 0.5 4 + 0.255 + 0.254 = 4.25 out of 5. Do this for different prompt versions across multiple test questions to see which prompt has the best average performance. This may be overkill for solo use, but it's the kind of approach an enterprise might use to choose a prompt for deployment	. As a power user, even thinking in this structured way can help you be objective. Sometimes a prompt might feel* better to you, but the data shows it missed more things.
+
+Prompt Checklist (Example): Whenever you design or review a prompt, run through this mental checklist (or write it out):
+
+• Clarity: Is the instruction unambiguous? Could Kimi misinterpret what I'm asking? (Test: if you remove or change one word, does it change meaning? If yes, ensure that word is the right one.)
+• Context: Did I provide all necessary context or references the model needs? (If there are names or terms, were they introduced? If not, am I expecting the model to "just know" - which could risk hallucination.)
+• Format: Did I specify the desired format or structure of the answer? If a certain structure is needed (list, essay, JSON), did I clearly mention it?
+• Tone/Persona: If tone matters, did I indicate it? (If not, Kimi will default to a neutral-helpful tone. If that's fine, no issue. If you need "enthusiastic marketer" tone, you better say so.)
+• Steps/Reasoning: For complex tasks, did I prompt it to show reasoning or take it step by step? Or do I at least allow for that in the conversation flow?
+• Constraints: Did I mention any do's or don'ts? (E.g., "do not include any mathematical derivations, only give the result." If such constraints exist in your mind, put them in the prompt explicitly.)
+• Robustness: How might the model go wrong here? (Will it possibly confuse two similar concepts? Could it output too much or too little?) Can I add a hint in the prompt to prevent that? (Even a parenthetical "(Be careful not to mix this up with ...)" can save an answer.)
+• Assistance: If the task is very complex, consider a meta-instruction like "If you need intermediate results or have questions, feel free to ask me." This at least opens the door for Kimi to request clarification rather than guessing.
+Run through this list, and you'll catch many issues preemptively. In a way, this checklist is like a	prompt of prompts - it prompts you to cover all bases in your prompt design.
+
+Finally, consider keeping a log of outputs for tricky prompts. For example, if you are developing a prompt to generate quizzes from text, keep a few example outputs. If one day the output degrades or Kimi's behavior changes after an update, you have something to compare against. It's not common for model updates to drastically change outputs given identical prompts, but it can happen. With a log, you can quickly spot if a previously reliable prompt needs tweaking due to a model change or a shift in Kimi's knowledge cutoff.
+
+In summary, treat prompt design as an iterative engineering process: design ? test ? evaluate ? refine . Use objective criteria and even involve the model in evaluation. This diligence pays off with prompts that work consistently, not just by luck. A well-tested prompt is empowering - you can deploy it in important scenarios with confidence that it will deliver the desired interaction with Kimi.
+
+Troubleshooting Guide: Dealing with Context Loss, Inconsistency, or Weird Outputs
+Even with careful prompting, you'll inevitably hit cases where Kimi's responses are not as desired. Maybe it forgets something it should know, or it contradicts itself, or the quality drops in a long session. This section provides troubleshooting tips for common issues, helping you diagnose the cause and apply fixes within the chat UI setting.
+
+Issue 1: Model "Forgets" Earlier Context (Loss of Context Mid-Conversation)
+You notice Kimi repeating questions you already answered, or giving recommendations that ignore constraints stated earlier. This is likely because the conversation has grown long and some earlier details have effectively been pushed out of the active context (or at least out of focus)	. Solutions: - Recap Key Points: Don't hesitate to reiterate important facts. A simple: "To remind you: [important fact]. Now, based on that, ..." can snap Kimi back on track. As James Howard notes, summarizing to refocus is very effective when the model begins to drift or repeat	. - Use the Memory Log: If you have a memory summary (as discussed earlier), you might re-inject it at this point. "(Recap: ...)". This is like telling someone "as we discussed earlier..." - it anchors the conversation. - Split the Conversation: If the thread is extremely long and tangled, sometimes it's best to start a fresh chat session with a clean summary of where you left off. Inconsistencies often resolve when irrelevant old stuff is gone. You're not losing much since you can carry over the needed context via a prompt. This is akin to the tip "Start fresh threads - break long conversations into focused segments"	. It avoids accumulation of noise. - Pinning: If using the Kimi UI's features, see if it has a "pin" or "sticky" instruction option (some UIs allow pinning a message so it's always in context). If not, manually pin by periodically restating crucial info.
+
+Issue 2: Inconsistent Persona or Style Drift
+Perhaps Kimi started formal and now is oddly casual, or it suddenly uses "I" when it was supposed to keep a neutral voice. LLMs can drift over long dialogues or after certain user inputs (they might mirror the user's tone or follow an inadvertent style cue). Solutions: -	Reassert the Persona: Literally copy your original persona/style instruction and say, "Please continue to respond in the style described: [insert module]." Kimi will usually apologize and revert. For instance:	"Remember, you are an expert historian - maintain a formal, informative tone." - Check for Triggers: Did you ask something that might have caused a style shift?
+Sometimes switching task (e.g. from discussing history to writing a poem) without telling the model to keep the same style can cause a change. To fix, you might combine style with the new task prompt: "Write a poem about X in the same scholarly tone as before."  Be explicit when changing subject to carry over the style. - Shorter Responses to Reset Tone: If the model is going on and on in a voice you don't like, you can intervene with a very direct instruction like  "(Stay in character: concise and professional.)"  and then ask a simple question to have it continue. By keeping the next user prompt simple, you give Kimi less to latch onto except your instruction.
+
+Preventive measure: define the persona clearly at the start and maybe include a cue like	"Stay in this role throughout." Also, keep an eye out if Kimi starts responding in first person as itself instead of as the role - that's a sign the role persona is slipping, so reinforce it immediately.
+
+Issue 3: Hallucinations or Fabricated Info
+Kimi gives an answer with details that you know were not in the provided context (and possibly are incorrect). This can happen if the model's training knowledge suggests something confidently but it isn't grounded in your data, or if your question inadvertently prompted an imaginative response. Solutions: - Force Evidence-Based Answering: Adjust your prompt to require evidence or to quote source content. E.g., "According to the document, ..." or "Give the answer and cite any source from the text." If Kimi knows it must stick to provided info, it's less likely to make things up. You can even say, "If the information is not in the context, say 'I don't have that information.'" This explicit instruction often works - Kimi will follow the rule and refrain from guessing	. - Identify the Hallucinated Bits: Sometimes only part of the answer is hallucinated, mixed with correct info. You can copy the answer and ask Kimi to	fact-check it. "Fact-check each statement above against the source. Mark any that can't be confirmed." This reflection can help it retract false parts. If it's a pure hallucination with no grounding, Kimi might respond with, "Actually I cannot verify X; it was an assumption." Then you can clarify or provide the real info. -	Reduce Creativity (Temperature): If the UI allows adjusting the "creativity" or randomness (temperature/top_p), lowering it makes the model less likely to go off-script. A temperature around 0.5-0.6 is recommended for balanced factuality	. If you suspect hallucinations, try a regeneration with a lower setting (if available). A more deterministic response will stick closer to given context. - Add a Sanity-Check Step: Insert a prompt before final answer like "List the key facts you are using to form your answer." Then your next prompt: "Now answer the question using only those facts." By forcing the model to lay out the factual basis, you discourage it from bringing in unsupported info. This two-step process mirrors how one might use retrieval-augmented generation but manually.
+
+Issue 4: Over-verbosity or Repetition
+Kimi keeps repeating itself or the answers are bloated with unnecessary text. This often happens in long sessions where the model is unsure if you "got it", or if you used a reflection prompt and it's now reiterating earlier content, or sometimes just because the conversation history is long and it tries to be extra explicit. Solutions: - Interrupt and Refocus: You can interject with "You've covered that. Please continue with new information only." Kimi will usually acknowledge and move on. It's very much like telling a human "I understand that part, go on." - Request Conciseness: Remind it of the length or brevity requirement: "In the next answer, do not exceed 3 sentences and avoid repeating points."	This clear instruction can reset the verbosity. Also avoid asking multiple things at once if you want brevity; the model might be long-winded trying to answer everything. Instead, split questions or explicitly state the desired briefness per part. - Use System Instruction (if available): Some UIs let you edit a system message. If so, adding a line like "Be concise in your answers." at that level can globally reduce verbosity. If not, just treat it as a persistent user instruction.
+
+Repetition can also indicate context window saturation - the model might be regurgitating text from earlier because it's "lost in the middle" of too much information and falls back to earlier phrasing	. If you suspect this, either prune the history or summarizing it (techniques from Issue 1). After summarizing, ask the question again and you might see it no longer repeats because the fluff is gone.
+
+Issue 5: Model refuses or responds with an error/message
+Sometimes Kimi (or underlying systems) might refuse a prompt if it's potentially against content guidelines, or it might give a meta-answer like "I'm not sure I can do that." If you're a power user you likely know to
+
+avoid obviously disallowed content, but sometimes even benign prompts get flagged (maybe a word triggered it). Solutions: - Rephrase the Prompt: If you suspect a false flag, reword your request in a more neutral way. Avoid slang or hyperbole that might be misinterpreted. For example, instead of "Simulate a war strategy..." you might say "Analyze a historical battle's strategy...". The latter is less likely to hit a filter. - Content Justification: If your prompt might border on sensitive (maybe discussing medical or legal scenarios), explicitly state the benign intent: "(This is for a fictional scenario / for academic discussion.)" and ask objectively. Kimi's policies likely allow a lot as long as it's clearly educational or fictional and not actual harmful advice. - Check Preamble for Conflict: If you set a very strict persona (like "you cannot do X or Y"), the model might be erring on the side of caution and refusing tasks that it actually could do. Ensure your instructions aren't inadvertently blocking yourself. Balance helpfulness and constraints.
+
+Issue 6: Degraded Coherence in Very Long Sessions	(The model's answers start to feel off-topic, or logically incoherent, often after a lengthy exchange.) This is a sign of	Context Degradation Syndrome (CDS)	. Essentially, the model has been through so many turns that minor errors accumulated and it "lost the plot." Symptoms might include sudden vagueness, contradicting earlier established facts, or making leaps that don't follow. - Solution 1: Summarize and Restart - as discussed, summarizing the conversation so far in a fresh prompt can eliminate the noise that built up		. You can do this within the same chat ("Here's a brief of our discussion: ... Now let's continue with ...") or start anew with that summary. - Solution 2: Explicit Structure - remind the model of the structure: "Let's revisit our goals: 1)...
+2)... Now, focusing on goal 2, ..." . Using headings or numbered lists in your prompt can fight drift	. It acts
+as signposts to keep the model oriented. - Solution 3: Shorten Turns - if each turn of the conversation has become essay-length, the model is juggling a lot. Try to break your queries into smaller chunks. Instead of asking for a full chapter at once, ask for an outline, then each section, etc. This resets context every so often. - Solution 4: Final Option - Move to API or Tooling - if you consistently need 500+ turns or huge context where the UI isn't coping, consider that your use case might be better served with an external solution (like using the API with a vector database, etc.). But that's outside the "UI-only" scope. Still, it's good to know the limits of the medium - the chat UI is incredible for many things, but extremely long, branching sessions might just be beyond what one conversation can handle coherently.
+
+In all troubleshooting, a guiding principle is: diagnose by isolating variables. If something went wrong, try a minimal example in a new chat to see if it's reproducible. E.g., if summarization failed at some point, feed just that section to Kimi in a fresh chat and see if it was the content or the context causing it. This helps pinpoint if the issue was prompt design, model limitation, or context overload.
+
+Remember also that Kimi K2 is a tool, and you are the operator. Sometimes the fastest fix is a manual one: if it forgets a detail, you supply it again; if it wavers, you provide encouragement or direction; if it errs, you correct it and have it try again. The interactive nature is a feature - use it to co-create and adjust on the fly. A troubleshooting mindset embraces this collaboration: when the AI falters, think of it like a student that needs guidance or a teammate that needs clarification. You can often chat your way out of a problem with a few well-placed instructions.
+
+Lastly, don't be afraid to cut losses in a given approach. If you've tried multiple fixes and the conversation is still derailed, it can be better to start fresh and apply the lessons learned from the failure. In doing so, you'll gradually experience such failures less often, as your prompting instincts sharpen.
+
+Prompt Codex Appendix: Reusable Prompt Blocks and Examples
+(Throughout the guide we discussed modular prompt "blocks" and example snippets. Here is a consolidated appendix of some ready-to-use prompt components that you can mix and match in your Kimi K2 interactions. Think of this as a quick reference codex. Feel free to modify the wording to suit your style.)
+
+• Role/Perspective Blocks:
+• Analyst Role: "You are a keen analytical assistant. You question assumptions and provide evidence- based answers. You speak in a formal, objective tone."
+• Tutor Role: "You are a patient tutor for [subject]. You explain concepts step-by-step in simple terms and often ask me questions to ensure understanding."
+• Devil's Advocate: "Take the devil's advocate position on this issue - challenge the prevailing view with logical arguments (without being malicious)."
+• Journalist Persona: "You are an investigative journalist. Respond in AP News style: factual, concise, and in the third person."
+
+• Style/Format Blocks:
+
+• Summary Bullet Format: "Respond with a bulleted list of the 3 most important points."
+• Report Format: "Provide your answer in a structured format: Introduction, Analysis, Conclusion - each as a short paragraph."
+• JSON Format: "Output only valid JSON. Use keys: 'answer' for the main answer, and 'sources' for a list of any assumed facts."
+• Table Output: "Give the answer as a table. Columns: Pros | Cons | Recommendation. Populate accordingly."
+• Conciseness: "Keep the answer under 50 words. Be direct and to the point."
+
+• Elaboration: "Provide a detailed explanation, including an example to illustrate each major point. Length ~300 words."
+
+• Context Injection Blocks:
+
+• Facts Provided: "Facts to use: (1) Market size is 1.2B; (2) Growth rate 5%; (3) Main competitor ABC Corp. Use these facts in your answer."
+• Policy/Reference: "Reference: According to the 2025 Company Policy Handbook (section 4.3), employees must ... [the rest of the policy excerpt] ... Use this information when answering compliance questions."
+• Ontology Glossary: "Glossary: TermA = definition..., TermB = definition..., TermC =	Use this
+terminology exactly when discussing related concepts."
+
+• User Profile: "User Profile: Name: John; Background: beginner in programming; Goal: learn loops.
+Tailor your explanation to this profile."
+
+• Reasoning/Process Blocks:
+
+• Step-by-Step Prompt: "Let's solve this step by step. First, outline the approach in steps, then execute them one by one."
+• Chain-of-Thought: "Think aloud: analyze the problem and walk through your reasoning before giving a final answer." (Kimi will typically produce the reasoning in the answer - use when you want transparency.)
+• Hypothesis Generation: "Propose 2-3 possible explanations for this phenomenon, then examine each and conclude which is most likely."
+• Self-Check: "Before finalizing, list any potential mistakes or uncertainties in your solution. Then revise if needed and present the final answer."
+• Question for User: "If anything is unclear or you need more data, ask me a clarifying question now instead of guessing."
+
+• Perspective Shift Blocks:
+
+• Alternative Angle: "Now answer from the perspective of a skeptic of this idea, then address that perspective with a counter-argument."
+• Audience Shift: "Explain it as if addressing a 5-year-old child." (Great for forcing simple language.)
+
+• Format Shift:	"Convert the above explanation into a dialogue between a teacher and student." (Sometimes helps engagement or clarity.)
+
+• Troubleshooting/Rescue Blocks:
+
+• Memory Recap: "Recall: [insert previous key info]. Continue based on this." (Use when model forgets something.)
+• Focus Reminder: "(Let's focus only on [specific task] now.)" (Use in parentheses as a gentle instruction to narrow scope.)
+• Error Correction: "There is an error in your last answer regarding 	. Find and correct it."
+• Simplify: "Your last answer is too complex. Redo it with simpler language and shorter sentences."
+• Consistency Check: "Double-check: Does your answer contradict any earlier statements? If so, fix it for consistency."
+Using these blocks, you can construct comprehensive prompts. Example combining several: Suppose I want a succinct, evidence-based answer on a medical question for a layperson. I might combine: - Role: "You are a medical expert." - Style: "Provide a brief answer (2-3 sentences) in plain language." - Reasoning: "Cite a known fact to support your answer." So the final prompt:	"You are a medical expert. Provide a brief answer (2-3 sentences) in plain language for a general audience. Cite a known fact or statistic to support your answer. Question: Why is regular exercise beneficial for mental health?"
+
+This prompt uses a role, style instruction, and a reasoning nudge ("cite a known fact"), plus the question. A good answer might come out as:	"Regular exercise releases endorphins, which are natural mood lifters,
+
+reducing stress and anxiety risk of developing depression
+
+90 . Studies show that people who exercise at least 3 times a week have 20% lower
+91 . In simple terms, exercise helps your brain feel happier."
+
+
+The above demonstrates how modular pieces shape the answer (and note it even included a citation-like style because I said "cite a known fact"). These building blocks can be adjusted to fit nearly any scenario. Over time, you'll develop your own go-to modules - this codex is a starting kit.
+
+
+
+By mastering prompt architecture, memory simulation, scaffolded dialogue, and cognitive techniques, a Kimi K2 power user can unlock extraordinary performance from the model - all through careful conversation design. The key is to remain iterative, observant, and creative. Treat the AI as both a student to guide and an expert to consult. This playbook's strategies, from prompt stacks to reflective loops, equip you to push Kimi to its interactive limits while staying within the friendly confines of the web UI. Happy prompting!
+
+Sources: (The references below correspond to citations in the text above, providing supporting details and further reading.)
+
+1221	3	6	7	510  11  12  13  15  16  17  18  19  20  33  28  30  32  38  42  34  36  60  46404164  65  66  63  6467  44  83  76  77  78  74  75  72  73  27  81  82  49  86  87
+
+
+
+https://kimi-ai.chat/models/kimi-k2/
+
+Kimi K2 - Kimi
+
+Adding Memory to GPT Models
+https://www.vasinov.com/blog/adding-memory-to-gpt-models/
+
+Claude 4.5 Context Length & Extended Memory Explained
+https://skywork.ai/blog/claude-4-5-context-length-extended-memory/
+
+How I Simulated Memory in Free ChatGPT Using Logic Alone (Manual Memory Log Method) -
+Use cases and examples - OpenAI Developer Community
+https://community.openai.com/t/how-i-simulated-memory-in-free-chatgpt-using-logic-alone-manual-memory-log-method/   1286932
+Why LLMs Fail in Multi-Turn Conversations (And How to Fix It)
+https://www.prompthub.us/blog/why-llms-fail-in-multi-turn-conversations-and-how-to-fix-it
+
+Context Degradation Syndrome: When Large Language Models
+Lose the Plot - James Howard
+https://jameshoward.us/2024/11/26/context-degradation-syndrome-when-large-language-models-lose-the-plot
+
+Stop LLM Summarization From Failing Users | Galileo
+https://galileo.ai/blog/llm-summarization-production-guide
+
+          LLM Ontology-prompting for Knowledge Graph Extraction | by Peter Lawrence, answering users' data questions | GoPenAI
+https://blog.gopenai.com/llm-ontology-prompting-for-knowledge-graph-extraction-efdcdd0db3a1?gi=d16a1b963540
+
+Prompt Chaining | Prompt Engineering Guide
+https://www.promptingguide.ai/techniques/prompt_chaining
+
+Exploring the Impact of LLM Prompting on Students' Learning
+https://www.mdpi.com/2813-4346/4/3/31
+
+Meta-Prompting: Scaling Prompt Engineering with LLMs | by Raji Rai | Nov, 2025 |
+Medium
+https://krrai77.medium.com/meta-prompting-scaling-prompt-engineering-with-llms-4a383e641bd0
+
+Kimi K2 Thinking: Open-Source LLM Guide, Benchmarks, and Tools | DataCamp
+https://www.datacamp.com/tutorial/kimi-k2-thinking-guide
+
+Kimi-k2-thinking system prompt guidelines - Facebook
+https://www.facebook.com/groups/techtitansgroup/posts/1512350920092221/
+
+LLM Reflection | AutoGen 0.2 - Microsoft Open Source
+https://microsoft.github.io/autogen/0.2/docs/topics/prompting-and-reasoning/reflection/
+
+Reflexion | Prompt Engineering Guide
+https://www.promptingguide.ai/techniques/reflexion
+
+What is Self Reflection in LLMs? - Iguazio
+https://www.iguazio.com/glossary/self-reflection-in-llms/
+
+Schema for In-Context Learning
+https://arxiv.org/html/2510.13905v1
+
+[PDF] Self-Reflection in LLM Agents: Effects on Problem-Solving ... - arXiv
+https://arxiv.org/pdf/2405.06682
+
+Reflection Agents With LangGraph | Agentic LLM Based Applications
+https://medium.com/aimonks/reflection-agents-with-langgraph-agentic-llm-based-applications-87e43c27adc7
+
+What is few shot prompting? | IBM
+https://www.ibm.com/think/topics/few-shot-prompting
+
+Zero-Shot, One-Shot, and Few-Shot Prompting
+https://learnprompting.org/docs/basics/few_shot?srsltid=AfmBOorEN3gzZlfolR2mFi_JgChznMKflV12rZ63bqOmafOXBUv7BrSA
+
+Everything you need to do before prompting: Success criteria, test ...
+https://www.prompthub.us/blog/everything-you-need-to-do-before-prompting-success-criteria-test-cases-evals
+
+Evaluating prompts at scale with Prompt Management and Prompt ...
+https://aws.amazon.com/blogs/machine-learning/evaluating-prompts-at-scale-with-prompt-management-and-prompt-flows-for-   amazon-bedrock/
+I Build A Prompt That Can Make Any Prompt 10x Better : r/ChatGPTPromptGenius
+https://www.reddit.com/r/ChatGPTPromptGenius/comments/1ktjk0p/i_build_a_prompt_that_can_make_any_prompt_10x/
+
+Prompt Engineering Evaluation Metrics: How to Measure Prompt ...
+https://www.leanware.co/insights/prompt-engineering-evaluation-metrics-how-to-measure-prompt-quality
+
+From Art to Engineering: A Practical Rubric for GPT-4.1 Prompt Design
+https://medium.com/@reveriano.francisco/from-art-to-engineering-a-practical-rubric-for-gpt-4-1-prompt-design-e4cc9f9d55de
+
+
