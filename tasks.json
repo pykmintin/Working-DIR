@@ -1,3 +1,11 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "id": 1,
+      "text": "help mum with her ATO automation",
+      "prio": "high",
+      "done": false,
+      "created": "2025-12-05T03:46:34.881902"
+    }
+  ]
 }
